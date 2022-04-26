@@ -31,7 +31,7 @@ public class Main {
     }
     static Warriors[] PlayerWarriors = new Warriors[0];
     static Warriors[] BotWarriors = new Warriors[0];
-    static int position1 = 5;
+    static int position1 = 9;
     static int position2 = 0;
     static Player player = new Player(position1, PlayerWarriors); // player left
     static Player Bot    = new Player(position2, BotWarriors); // bot right
