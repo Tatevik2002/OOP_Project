@@ -3,14 +3,13 @@ package BattleOfAges.TurretTypes;
 
 public class Turret{
 
-    private int attack;
-    private int range;
-    private int cost;
+    private int attack = 2;
+    private int range = 4;
+    private int cost = 800;
 
-    public Turret(int attack, int range, int cost) {
-        this.attack = attack;
-        this.range = range;
-        this.cost = cost;
+    public Turret(int bonus) {
+        this.attack = 2 + bonus;
+        this.cost = 800 + (int)Math.pow(200,bonus);
     }
 
     public int getAttack() {

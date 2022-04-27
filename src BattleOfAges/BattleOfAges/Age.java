@@ -9,14 +9,16 @@ public class Age {
     private String image;
     private Power power;
     private int castleHealthBonus;
+    private int turretDamageBonus;
 
-    public Age(String image, int healthBonus, int attackBonus, int powerBonus, int castleHealthBonus) {
+    public Age(String image, int healthBonus, int attackBonus, int powerBonus, int castleHealthBonus, int turretDamageBonus, int costBonus) {
         this.healthBonus = healthBonus;
         this.attackBonus = attackBonus;
         this.powerBonus = powerBonus;
-        // this.costBonus = costBonus;
+        this.costBonus = costBonus;
         this.image = image;
-        this.power = new Power(this,image);
+        this.power = new Power(this.image);
+        this.turretDamageBonus = turretDamageBonus;
         this.castleHealthBonus = castleHealthBonus;
     }
     public Age(Age theAge) {
@@ -50,8 +52,13 @@ public class Age {
         return image;
     }
 
+    public int getTurretDamageBonus() {
+        return turretDamageBonus;
+    }
+
     public int getCastleHealthBonus() {
         return castleHealthBonus;
     }
+
 }
 

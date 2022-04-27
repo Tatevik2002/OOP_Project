@@ -4,16 +4,18 @@ public class Power{
     private int damage;
 
     // oqtvi army database-ic u ichecru health-e
-    public Power( Age age, String imageName){
-        if (age.getImage() == "img1"){
-            damage = age.getPowerBonus();
+    public Power(String imageName){
+        if (imageName == "img1"){
+            damage = Main.Age1.getPowerBonus();
         }
-        if (age.getImage() == "img2"){
-            damage += age.getPowerBonus();
+        else if (imageName == "img2"){
+            damage += Main.Age2.getPowerBonus();
+        }
+        else if (imageName == "img3"){
+            damage += Main.Age3.getPowerBonus();
         }
         else{
-            damage += age.getPowerBonus();
-
+            damage += Main.Age4.getPowerBonus();
         }
 
     }

@@ -62,7 +62,7 @@ public class Player extends PlayerMethods {
 //    }
     public Age getAge(){
         return new Age(currentAge.getImage(), currentAge.getHealthBonus(),
-                currentAge.getAttackBonus(), currentAge.getPowerBonus(),currentAge.getCastleHealthBonus());
+                currentAge.getAttackBonus(), currentAge.getPowerBonus(),currentAge.getCastleHealthBonus(), currentAge.getTurretDamageBonus(), currentAge.getCostBonus());
     }
     public Warriors[] getWarriors() {
         Warriors[] listOfWarriors = new Warriors[warriors.length];
