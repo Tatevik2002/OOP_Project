@@ -12,23 +12,31 @@ public class Warriors {
 //    public Type1 type1 = new Type1(); //
 //    public Type2 type2 = new Type2(); //
 //    public Type3 type3 = new Type3(); //
-    Age thisAge;
-    Type thisType;
-    int maxhealth = thisType.getHealth() * thisAge.getHealthBonus();
-    int currentHealth = maxhealth;
-    int Attack = thisType.getAttack() * thisAge.getAttackBonus();
-    int position = 0; // kam enmi dseve
+    private Age thisAge; //poxel em
+    private Type thisType; // poxel em
+    private int maxhealth = thisType.getHealth() * thisAge.getHealthBonus(); //poxel em
+    private int currentHealth = maxhealth; //poxel em
+    private int attack = thisType.getAttack() * thisAge.getAttackBonus();//poxel em
+    private int position = 0; //poxel em, xi 0? hakaraky petqa lini
 
 
-    public Warriors(Age thisAge,Type thisType,int positionOfPlayerOrBot) {
+    public Warriors(Age thisAge,Type thisType,int positionOfPlayerOrBot, int attack) { //poxel em
         this.thisAge = thisAge;
         this.thisType = thisType;
         this.position = positionOfPlayerOrBot;
+        this.attack= attack;
     }
-    public Warriors(int currentHealth,int Attack,int position) {
+    public Warriors(int currentHealth,int Attack,int position) { // xi 2rd constructor
         this.currentHealth = currentHealth;
-        this.Attack = Attack;
+        this.attack = Attack;
         this.position = position;
+    }
+    public Warriors(Warriors other){
+        this.thisAge = other.thisAge;
+        this.thisType = other.thisType;
+        this.position = other.position;
+        this.attack= this.attack;
+
     }
 
 
@@ -37,7 +45,7 @@ public class Warriors {
     }
 
     public int getAttack() {
-        return Attack;
+        return attack;
     }
 
     public int getPosition() {

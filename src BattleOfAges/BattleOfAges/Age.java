@@ -28,6 +28,8 @@ public class Age {
         this.costBonus = theAge.costBonus;
         this.image = theAge.image;
         this.power = theAge.getPower();
+        this.turretDamageBonus = theAge.turretDamageBonus;// avelacrel em
+        this.castleHealthBonus = theAge.castleHealthBonus;//avelacrel em
     }
     public Power getPower(){
         return power;
