@@ -1,6 +1,10 @@
 package BattleOfAges;
 import BattleOfAges.Type.*;
-public class Player  {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Player {
     private Age currentAge;
     private int ageIDinArray = 0;
     private int money;
@@ -121,6 +125,28 @@ public class Player  {
     private void setCastleHealthNow(int castleHealthNow) {
         if(!castle.changeCastleHealth(this)){
             System.out.println("the age wasn't able to change");
+        }
+    }
+    public class UnitMoveOrCreate implements ActionListener{
+        public int playerSide;
+        public int x = 0;
+        public int y = 0;
+        Timer t = new Timer(2000, this);
+        public String unitImage;
+
+        public UnitMoveOrCreate(int playerSide,String unitImage) {
+            this.playerSide = playerSide;
+            this.unitImage = unitImage;
+            if( playerSide == 1){
+                this.x = 1080;
+                this.y = 1080;
+            }
+
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            x+= 20;
         }
     }
 }
