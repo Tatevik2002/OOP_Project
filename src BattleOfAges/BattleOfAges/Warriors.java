@@ -1,11 +1,6 @@
 package BattleOfAges;
 
-import BattleOfAges.Main;
 import BattleOfAges.Type.Type;
-
-import BattleOfAges.Type.Type1;
-import BattleOfAges.Type.Type2;
-import BattleOfAges.Type.Type3;
 
 public class Warriors {
 //
@@ -20,10 +15,10 @@ public class Warriors {
     private int position = 0; //poxel em, xi 0? hakaraky petqa lini
 
 
-    public Warriors(Age thisAge,Type thisType,int positionOfPlayerOrBot, int attack) { //poxel em
+    public Warriors(Age thisAge,Type thisType,int positionOfX, int attack) { //poxel em
         this.thisAge = thisAge;
         this.thisType = thisType;
-        this.position = positionOfPlayerOrBot;
+        this.position = positionOfX;
         this.attack= attack;
     }
     public Warriors(int currentHealth,int Attack,int position) { // xi 2rd constructor
@@ -39,7 +34,6 @@ public class Warriors {
 
     }
 
-
     public int getCurrentHealth() {
         return currentHealth;
     }
@@ -53,8 +47,8 @@ public class Warriors {
     }
 
 
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
+    public void setCurrentHealth(int damageTacken) {
+        this.currentHealth -= damageTacken;
     }
     public void setPosition(int position) {
         this.position = position;

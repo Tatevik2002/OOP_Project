@@ -48,7 +48,7 @@ public class Player {
         this.warriors = newArray;
         return newArray;
     }
-    public  Warriors[] changeArray(Player player,Warriors newWarrior) { // avelacnuma mi hat warrior
+    public Warriors[] changeArray(Player player,Warriors newWarrior) { // avelacnuma mi hat warrior
         // poxel em
         int newLength = player.warriors.length + 1;
         Warriors[] copyArray = new Warriors[newLength];
@@ -95,12 +95,24 @@ public class Player {
     }
 
 
-//    public creatType1Unit(){
+
+    public void addWarriors(Warriors newWarrior) {
+        this.warriors = changeArray(this, newWarrior);
+    }
+    //adds the newly created warrior to the player's warriors array.
+    // imasty?
+
+
+
+
+
+    //    public creatType1Unit(){
 //        Type1 type1 = new Type1();
 //        changeArray(Coordinates,1); // adds one length
 //        Coordinates[Coordinates.length]= type1
 //
 //    }
+
     public Age getAge(){
         return new Age(currentAge.getImage(), currentAge.getHealthBonus(),
                 currentAge.getAttackBonus(), currentAge.getPowerBonus(),currentAge.getCastleHealthBonus(), currentAge.getTurretDamageBonus(), currentAge.getCostBonus());
@@ -112,16 +124,10 @@ public class Player {
         }
         return listOfWarriors;
     }
-    public void addWarriors(Warriors newWarrior) {
-        this.warriors = changeArray(this, newWarrior);
-    }
-    //adds the newly created warrior to the player's warriors array.
-    // imasty?
 
     public int getCastleHealthNow() {
         return castle.getCastleHealth();
     }
-
     private void setCastleHealthNow(int castleHealthNow) {
         if(!castle.changeCastleHealth(this)){
             System.out.println("the age wasn't able to change");
@@ -133,7 +139,6 @@ public class Player {
         public int y = 0;
         Timer t = new Timer(2000, this);
         public String unitImage;
-
         public UnitMoveOrCreate(int playerSide,String unitImage) {
             this.playerSide = playerSide;
             this.unitImage = unitImage;
@@ -147,6 +152,17 @@ public class Player {
         @Override
         public void actionPerformed(ActionEvent e) {
             x+= 20;
+        }
+    }
+
+//  public Warriors getFirstWarrior() {
+////        Warriors copyWarrior = new Warriors(warriors[0]);
+////        return copyWarrior;
+////    }
+    public void setDamageFirstWarriorHealth(int damageToWarrior) {
+        warriors[0].setCurrentHealth(damageToWarrior);
+        if(warriors[0].getCurrentHealth() < 1) {
+            changeArray(this);
         }
     }
 }
