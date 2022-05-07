@@ -1,4 +1,5 @@
 package BattleOfAges;
+import BattleOfAges.TurretTypes.Turret;
 import BattleOfAges.Type.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -92,6 +93,7 @@ public class Player {
         else {
             System.out.println("last age reached");
         }
+
     }
 
 
@@ -164,5 +166,12 @@ public class Player {
         if(warriors[0].getCurrentHealth() < 1) {
             changeArray(this);
         }
+    }
+    protected Age getNextAge(){
+        Main.arrayCount++;
+        return Main.arrayOfAges[Main.arrayCount];
+    }
+    protected Turret getNextTurret() {
+        return Main.arrayOfTurrets[Main.arrayCount];
     }
 }
