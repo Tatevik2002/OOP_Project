@@ -41,6 +41,8 @@ public class Main {
     public Type1 type1 = new Type1();
     public Type2 type2 = new Type2();
     public Type3 type3 = new Type3();
+    MyFrame myFrame = new MyFrame();
+
 
 
 }
