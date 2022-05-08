@@ -10,8 +10,10 @@ public class Age {
     private Power power;
     private int castleHealthBonus;
     private int turretDamageBonus;
+    public int ageNumber;
 
-    public Age(String image, int healthBonus, int attackBonus, int powerBonus, int castleHealthBonus, int turretDamageBonus, int costBonus) {
+    public Age(int ageNumber, String image, int healthBonus, int attackBonus, int powerBonus, int castleHealthBonus, int turretDamageBonus, int costBonus ) {
+        this.ageNumber = ageNumber;
         this.healthBonus = healthBonus;
         this.attackBonus = attackBonus;
         this.powerBonus = powerBonus;

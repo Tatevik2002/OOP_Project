@@ -11,9 +11,10 @@ public class Player {
     private int money;
     private int exp;
     private int timeNeededToUsePower; // seconds
-    protected Warriors[] warriors = new Warriors[0];
+    protected Warriors[] warriors = new Warriors[1];
     protected Castle castle = new Castle(this);
-    Type[] Coordinates = new Type[1];
+    //    Type[] Coordinates = new Type[1];
+    Player myEnemy = Main.Bot;
     int position;
     Player(int LeftOrRight, Warriors[] WarriorsArrayName){
         exp = 0;
@@ -26,7 +27,7 @@ public class Player {
         int newLength = player.warriors.length - 1;
         Warriors[] newArray = new Warriors[newLength];
         Warriors[] copyArray = new Warriors[newLength];
-        for (int i = 1; i < player.warriors.length; i++) {
+        for (int i = 1; i < Main.player.warriors.length; i++) {
             newArray[i-1] = player.warriors[i];
             copyArray[i-1]= new Warriors(player.warriors[i]);
         }
@@ -50,7 +51,6 @@ public class Player {
         return newArray;
     }
     public Warriors[] changeArray(Player player,Warriors newWarrior) { // avelacnuma mi hat warrior
-        // poxel em
         int newLength = player.warriors.length + 1;
         Warriors[] copyArray = new Warriors[newLength];
         Warriors[] newArray = new Warriors[newLength];
@@ -63,15 +63,32 @@ public class Player {
         this.warriors = newArray;
         return newArray;
     }
+    public Warriors[] getMyWarriorArray(){
+        return warriors;
+    }
+    public Warriors getMyWarrior(int id){
+        return warriors[id];
+    }
+    public int getMyWarriorLength(){
+        return warriors.length;
+    }
+    public Warriors getEnemyWarrior(int id){
+        return myEnemy.getMyWarrior(id);
+    }
+    public Warriors getClosestEnemyWarrior(int id){
+        return myEnemy.getMyWarrior(Main.Bot.getMyWarriorLength() - 1);
+    }
 
-    public void usePower(Player opponent){
-        Warriors[] listOfWarriors = opponent.getWarriors();
-        for (int i= 0; i< listOfWarriors.length; i++){
+    public void usePower(){
+        Warriors[] listOfWarriors = myEnemy.getMyWarriorArray();
+        int[] pos= null;
+        int damageQuantity = new Warriors(this.currentAge, Main.Type2, pos); // petqa poxel
+        for (int i= 0; i < myEnemy.getMyWarriorLength() - 1; i++){
             if (listOfWarriors[i].getCurrentHealth()-currentAge.getPower().getDamage()>0){
-            listOfWarriors[i] = new Warriors((listOfWarriors[i].getCurrentHealth()-currentAge.getPower().getDamage()),
-                    listOfWarriors[i].getAttack(),listOfWarriors[i].getPosition()) ;}
+                listOfWarriors[i] = new Warriors((listOfWarriors[i].getCurrentHealth()-currentAge.getPower().getDamage()),
+                        listOfWarriors[i].getAttack(),listOfWarriors[i].getPosition()) ;}
             else{
-                changeArray(opponent,i);
+                changeArray(myEnemy,i);
             } // check exp and time before using power
         }
         exp = 0;
@@ -93,7 +110,6 @@ public class Player {
         else {
             System.out.println("last age reached");
         }
-
     }
 
 
@@ -102,30 +118,25 @@ public class Player {
         this.warriors = changeArray(this, newWarrior);
     }
     //adds the newly created warrior to the player's warriors array.
-    // imasty?
 
-
-
-
-
-    //    public creatType1Unit(){
+//        public creatType1Unit(){
 //        Type1 type1 = new Type1();
 //        changeArray(Coordinates,1); // adds one length
 //        Coordinates[Coordinates.length]= type1
-//
 //    }
 
     public Age getAge(){
-        return new Age(currentAge.getImage(), currentAge.getHealthBonus(),
-                currentAge.getAttackBonus(), currentAge.getPowerBonus(),currentAge.getCastleHealthBonus(), currentAge.getTurretDamageBonus(), currentAge.getCostBonus());
+        return new Age(currentAge.ageNumber, currentAge.getImage(), currentAge.getHealthBonus(),
+                currentAge.getAttackBonus(), currentAge.getPowerBonus(),currentAge.getCastleHealthBonus(),
+                currentAge.getTurretDamageBonus(), currentAge.getCostBonus());
     }
-    public Warriors[] getWarriors() {
+    /* public Warriors[] getWarriors() {
         Warriors[] listOfWarriors = new Warriors[warriors.length];
         for(int i = 0; i< warriors.length;i++){
             listOfWarriors[i] = new Warriors(warriors[i].getCurrentHealth(),warriors[i].getAttack(),warriors[i].getPosition());
         }
         return listOfWarriors;
-    }
+    } */
 
     public int getCastleHealthNow() {
         return castle.getCastleHealth();
@@ -157,7 +168,7 @@ public class Player {
         }
     }
 
-//  public Warriors getFirstWarrior() {
+    //  public Warriors getFirstWarrior() {
 ////        Warriors copyWarrior = new Warriors(warriors[0]);
 ////        return copyWarrior;
 ////    }

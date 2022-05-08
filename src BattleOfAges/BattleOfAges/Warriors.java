@@ -1,27 +1,25 @@
 package BattleOfAges;
 
-import BattleOfAges.Type.Type;
+import BattleOfAges.Type.*;
 
 public class Warriors {
-//
+    //
 //    public Type1 type1 = new Type1(); //
 //    public Type2 type2 = new Type2(); //
 //    public Type3 type3 = new Type3(); //
-    private Age thisAge; //poxel em
-    private Type thisType; // poxel em
-    private int maxhealth = thisType.getHealth() * thisAge.getHealthBonus(); //poxel em
-    private int currentHealth = maxhealth; //poxel em
-    private int attack = thisType.getAttack() * thisAge.getAttackBonus();//poxel em
-    private int position = 0; //poxel em, xi 0? hakaraky petqa lini
+    private Age thisAge; // laves arel
+    private Type thisType; // laves arel
+    private int maxhealth = thisType.getHealth() * thisAge.getHealthBonus(); // laves arel
+    private int currentHealth = maxhealth; // laves arel
+    private int attack = thisType.getAttack() * thisAge.getAttackBonus();// laves arel
+    private int[] position = {0,0}; // laves arel
 
-
-    public Warriors(Age thisAge,Type thisType,int positionOfX, int attack) { //poxel em
+    public Warriors(Age thisAge,Type thisType,int[] position) { // laves arel
         this.thisAge = thisAge;
         this.thisType = thisType;
-        this.position = positionOfX;
-        this.attack= attack;
+        this.position = position;
     }
-    public Warriors(int currentHealth,int Attack,int position) { // xi 2rd constructor
+    public Warriors(int currentHealth,int Attack,int[] position) { // xi 2rd constructor, eti yeselem asum xi 2nd constructor?
         this.currentHealth = currentHealth;
         this.attack = Attack;
         this.position = position;
@@ -30,7 +28,7 @@ public class Warriors {
         this.thisAge = other.thisAge;
         this.thisType = other.thisType;
         this.position = other.position;
-        this.attack= this.attack;
+        this.attack= other.attack;
 
     }
 
@@ -42,16 +40,25 @@ public class Warriors {
         return attack;
     }
 
-    public int getPosition() {
+    public int[] getPosition() {
         return position;
     }
 
+    public int getMaxhealth() {
+        return maxhealth;
+    }
 
     public void setCurrentHealth(int damageTacken) {
         this.currentHealth -= damageTacken;
     }
-    public void setPosition(int position) {
+
+
+    public void setPosition(int[] position) {
         this.position = position;
+    }
+    public void setPosition(int x, int y) {
+        this.position[0] = x;
+        this.position[1] = y;
     }
 
 }
