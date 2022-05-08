@@ -35,9 +35,9 @@ public class MyFrame extends JFrame{
         panel1.add(type1);
         panel1.add(type2);
         panel1.add(type3);
-        type1.setMaximumSize(new Dimension(20,280));
-        type2.setMaximumSize(new Dimension(20,280));
-        type3.setMaximumSize(new Dimension(20,280));
+        type1.setMaximumSize(new Dimension(50,61));
+        type2.setMaximumSize(new Dimension(50,61));
+        type3.setMaximumSize(new Dimension(50,61));
 
         type1.setIcon(new ImageIcon("image3_.png"));
         type2.setIcon(new ImageIcon("image3_.png"));
@@ -54,6 +54,7 @@ public class MyFrame extends JFrame{
 
         this.add(panel1,BorderLayout.NORTH);
         this.add(panel2,BorderLayout.CENTER);
+        this.add(panel3,BorderLayout.SOUTH);
         this.pack();
 
 

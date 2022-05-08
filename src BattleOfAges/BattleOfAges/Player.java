@@ -14,12 +14,12 @@ public class Player {
     protected Warriors[] warriors = new Warriors[1];
     protected Castle castle = new Castle(this);
     //    Type[] Coordinates = new Type[1];
-    Player myEnemy = Main.Bot;
+    Player myEnemy = Console.Bot;
     int position;
     Player(int LeftOrRight, Warriors[] WarriorsArrayName){
         exp = 0;
         money = 500;
-        currentAge = new Age(Main.arrayOfAges[0]);
+        currentAge = new Age(Console.arrayOfAges[0]);
         timeNeededToUsePower = 120; // seconds
         position = LeftOrRight;
     }
@@ -27,7 +27,7 @@ public class Player {
         int newLength = player.warriors.length - 1;
         Warriors[] newArray = new Warriors[newLength];
         Warriors[] copyArray = new Warriors[newLength];
-        for (int i = 1; i < Main.player.warriors.length; i++) {
+        for (int i = 1; i < Console.player.warriors.length; i++) {
             newArray[i-1] = player.warriors[i];
             copyArray[i-1]= new Warriors(player.warriors[i]);
         }
@@ -76,13 +76,14 @@ public class Player {
         return myEnemy.getMyWarrior(id);
     }
     public Warriors getClosestEnemyWarrior(int id){
-        return myEnemy.getMyWarrior(Main.Bot.getMyWarriorLength() - 1);
+        return myEnemy.getMyWarrior(Console.Bot.getMyWarriorLength() - 1);
     }
 
     public void usePower(){
         Warriors[] listOfWarriors = myEnemy.getMyWarriorArray();
         int[] pos= null;
-        int damageQuantity = new Warriors(this.currentAge, Main.Type2, pos); // petqa poxel
+
+        int damageQuantity =new Warriors(this.currentAge,Console.Type2, pos); // petqa poxel
         for (int i= 0; i < myEnemy.getMyWarriorLength() - 1; i++){
             if (listOfWarriors[i].getCurrentHealth()-currentAge.getPower().getDamage()>0){
                 listOfWarriors[i] = new Warriors((listOfWarriors[i].getCurrentHealth()-currentAge.getPower().getDamage()),
@@ -105,7 +106,7 @@ public class Player {
     private void changeAge(){
         if(ageIDinArray < 3){
             ageIDinArray++;
-            currentAge = Main.arrayOfAges[ageIDinArray]; // karanq "new Age(Main.arrayOfAges[ageIDinArray])"- el anenq
+            currentAge = Console.arrayOfAges[ageIDinArray]; // karanq "new Age(Main.arrayOfAges[ageIDinArray])"- el anenq
         }
         else {
             System.out.println("last age reached");
@@ -179,10 +180,10 @@ public class Player {
         }
     }
     protected Age getNextAge(){
-        Main.arrayCount++;
-        return Main.arrayOfAges[Main.arrayCount];
+        Console.arrayCount++;
+        return Console.arrayOfAges[Console.arrayCount];
     }
     protected Turret getNextTurret() {
-        return Main.arrayOfTurrets[Main.arrayCount];
+        return Console.arrayOfTurrets[Console.arrayCount];
     }
 }
