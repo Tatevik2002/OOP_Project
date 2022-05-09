@@ -5,20 +5,20 @@ public class Age {
     private int healthBonus;
     private int attackBonus;
     private int powerBonus;
-    private int costBonus;
+    private int expCost;
     private String image;
     private Power power;
     private int castleHealthBonus;
     private int turretDamageBonus;
     public int ageNumber;
 
-    public Age(int ageNumber, String image, int healthBonus, int attackBonus, int powerBonus, int castleHealthBonus, int turretDamageBonus, int costBonus ) {
+    public Age(int ageNumber, String image, int healthBonus, int attackBonus, int powerBonus, int castleHealthBonus, int turretDamageBonus, int expCost ) {
+        this.image = image;
         this.ageNumber = ageNumber;
         this.healthBonus = healthBonus;
         this.attackBonus = attackBonus;
         this.powerBonus = powerBonus;
-        this.costBonus = costBonus;
-        this.image = image;
+        this.expCost = expCost;
         this.power = new Power(this.image);
         this.turretDamageBonus = turretDamageBonus;
         this.castleHealthBonus = castleHealthBonus;
@@ -27,7 +27,7 @@ public class Age {
         this.healthBonus = theAge.healthBonus;
         this.attackBonus = theAge.attackBonus;
         this.powerBonus = theAge.powerBonus;
-        this.costBonus = theAge.costBonus;
+        this.expCost = theAge.expCost;
         this.image = theAge.image;
         this.power = theAge.getPower();
         this.turretDamageBonus = theAge.turretDamageBonus;// avelacrel em
@@ -48,8 +48,8 @@ public class Age {
         return powerBonus;
     }
 
-    public int getCostBonus() {
-        return costBonus;
+    public int getExpCost() {
+        return expCost;
     }
 
     public String getImage() {

@@ -5,13 +5,13 @@ public class Power{
 
     // oqtvi army database-ic u ichecru health-e
     public Power(String imageName){
-        if (imageName.equals("img1")){
+        if (imageName.equals("p1")){
             damage = Console.Age1.getPowerBonus();
         }
-        else if (imageName.equals("img2")){
+        else if (imageName.equals("p2")){
             damage += Console.Age2.getPowerBonus();
         }
-        else if (imageName.equals("img3")){
+        else if (imageName.equals("p3")){
             damage += Console.Age3.getPowerBonus();
         }
         else{

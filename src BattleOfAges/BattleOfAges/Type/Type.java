@@ -8,14 +8,16 @@ public class Type {
     private int movementSpeed;
     private int range;
     private int cost;
+    private float exp;
 //    private int hitRate;
 
-    public Type(int attack, int health, int movementSpeed, int range, int cost) {
+    public Type(int attack, int health, int movementSpeed, int range, int cost,float exp) {
         this.attack = attack;
         this.health = health;
         this.movementSpeed = movementSpeed;
         this.range = range;
         this.cost = cost;
+        this.exp = exp;
     }
 
 
@@ -38,4 +40,5 @@ public class Type {
     public int getCost() {
         return cost;
     }
+    public float getExp(){return exp;}
 }

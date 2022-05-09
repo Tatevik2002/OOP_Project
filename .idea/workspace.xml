@@ -3,19 +3,82 @@
   <component name="ChangeListManager">
     <list default="true" id="28f032fe-65da-4972-bdc2-08ec22f3e3c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Age.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Age.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player$UnitMoveOrCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player$UnitMoveOrCreate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/PlayerMethods.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Power.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Power.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/TurretTypes/Turret.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/TurretTypes/Turret.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Warriors.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Warriors.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Age.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Castle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Console.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/MyFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/MyPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player$UnitMoveOrCreate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Power.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/TurretTypes/Turret.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Type/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Type/Type1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Type/Type2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Type/Type3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Warriors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a1t1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a1t2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a1t3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a2t1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a2t2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a2t3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a3t1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a3t2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a3t3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a4t1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a4t2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/a4t3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/castle1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/castle2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/castle3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/castle4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/turret1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/turret2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/turret3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Bot/turret4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a1t1O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a1t2O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a1t3O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a2t1O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a2t2O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a2t3O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a3t1O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a3t2O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a3t3O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a4t1O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a4t2O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/a4t3O.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/castle1O.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/castle2O.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/castle3O.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/castle4O.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/turret1O.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/turret2O.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/turret3O.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/Player/turret4O.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/background_age1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/background_age2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/background_age3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/images/background_age4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/src BattleOfAges.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Age.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Age.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Console.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/PlayerMethods.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Power.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Power.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Type/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Type/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Type/Type1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Type/Type2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Type/Type3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Warriors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Warriors.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
