@@ -11,7 +11,6 @@ public class MyPanel extends JPanel implements ActionListener{
     final int PANEL_WIDTH = 1920;
     final int PANEL_HEIGHT = 1000;
     Image castle;
-    Image enemy;
     Image botCastle;
     Image backgroundImage;
     Timer timer;
@@ -28,40 +27,75 @@ public class MyPanel extends JPanel implements ActionListener{
         backgroundImage = new ImageIcon("background_age1.jpg").getImage();
         castle = new ImageIcon("castle1O.png").getImage();
         botCastle = new ImageIcon("castle1.png").getImage();
-        enemy = new ImageIcon("a1t1O.PNG").getImage();
         timer = new Timer(2500, this);
         timer.start();
     }
 
     public void paint(Graphics g) {
         g2D = (Graphics2D) g;
-
         g2D.drawImage(backgroundImage, 0, 0, null);
         g2D.drawImage(castle,-90,450, null);
         g2D.drawImage(botCastle,1320,450, null);
+        Image image = new ImageIcon("a1t1O.PNG").getImage();
+        for (Warriors element:Console.player.warriors){
+            String name;
+            name ="a"+element.getAge().getAgeNumber()+"t"+element.getThisType().getNumber()+"O.PNG";
+            Image image1 = new ImageIcon(name).getImage();
+            g2D.drawImage(image, element.getPositionX(), y, null);
 
-        g2D.drawImage(enemy, x, y, null);
+        }//for player
+        for (Warriors element:Console.Bot.warriors){
+            String name;
+            name ="a"+element.getAge().getAgeNumber()+"t"+element.getThisType().getNumber()+".PNG";
+            Image image1 = new ImageIcon(name).getImage();
+            g2D.drawImage(image, element.getPositionX(), y, null);
+
+        } //for bot
+        //move
+        //bar
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if(x>=PANEL_WIDTH-enemy.getWidth(null) || x<0) {
-            xVelocity = xVelocity * -1;
+        this.backgroundImage = (new ImageIcon(Console.player.getAge().getImage())).getImage();
+        if(Console.player.getAge()==Console.Age1){
+            this.castle = new ImageIcon("castle1O").getImage();
+        }
+        else if(Console.player.getAge()==Console.Age2){
+            this.castle = new ImageIcon("castle2O").getImage();
+        }
+        else if(Console.player.getAge()==Console.Age3){
+            this.castle = new ImageIcon("castle3O").getImage();
+        }
+        else if(Console.player.getAge()==Console.Age4){
+            this.castle = new ImageIcon("castle4O").getImage();
         }
 
-        if(t == false){
-            x = x + xVelocity;
-            t = true;
-            repaint();
+
+        if(Console.Bot.getAge()==Console.Age1){
+            this.castle = new ImageIcon("castle1").getImage();
+        }
+        else if(Console.Bot.getAge()==Console.Age2){
+            this.castle = new ImageIcon("castle2O").getImage();
+        }
+        else if(Console.Bot.getAge()==Console.Age3){
+            this.castle = new ImageIcon("castle3O").getImage();
         }
 
+        else if(Console.player.getAge()==Console.Age4){
+            this.castle = new ImageIcon("castle4O").getImage();
+        }
+
+
+
+
+
+        repaint();
+
+
     }
-    protected void  changeBackground(String name){
-        Image backgroundImage = new ImageIcon("name").getImage();
-        g2D.drawImage(backgroundImage,0,0, null);
-    }
+
 
 
 }

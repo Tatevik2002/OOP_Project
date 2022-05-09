@@ -1,28 +1,13 @@
 package BattleOfAges;
 
 public class Power{
-    private int damage;
-
-    // oqtvi army database-ic u ichecru health-e
+    private String image;
     public Power(String imageName){
-        if (imageName.equals("p1")){
-            damage = Console.Age1.getPowerBonus();
-        }
-        else if (imageName.equals("p2")){
-            damage += Console.Age2.getPowerBonus();
-        }
-        else if (imageName.equals("p3")){
-            damage += Console.Age3.getPowerBonus();
-        }
-        else{
-            damage += Console.Age4.getPowerBonus();
-        }
-
+        image = imageName;
     }
-    public int  getDamage(){
-        return damage;
+    public String getImage() {
+        return image;
     }
-
     // initiate attack on the screen
     // change the photo of the power in the screen
     // damage enemy

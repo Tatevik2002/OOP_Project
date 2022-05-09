@@ -24,33 +24,34 @@ public class Warriors {
         this.thisType = other.thisType;
         this.positionX = other.positionX;
         this.attack= other.attack;
-
     }
 
     public int getCurrentHealth() {
         return currentHealth;
     }
-
     public int getAttack() {
         return attack;
     }
-
     public int getPositionX() {
         return positionX;
     }
-
     public int getMaxhealth() {
         return maxhealth;
     }
     public float getExp(){return thisType.getExp();}
-
     public void setCurrentHealth(int damageTaken) {
         this.currentHealth -= damageTaken;
     }
     public void setPosition(int X) {
         this.positionX = X;
     }
+    public Age getAge(){
+        return new Age(this.thisAge);
 
+    }
+    public Type getThisType(){
+        return new Type(this.thisType);
+    }
 }
 
 

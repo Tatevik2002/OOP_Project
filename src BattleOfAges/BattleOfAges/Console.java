@@ -10,9 +10,9 @@ public class Console {
     static Age Age3 = new Age(3,"background_age3.png",200,200, 20,3,2, 300);
     static Age Age4 = new Age(4,"background_age4.png",280,280, 28,4,2, 400);
 
-    static Type Type1 = new Type(3,10,2,1, 100, 1.25f);
-    static Type Type2 = new Type(2,8, 3,2, 150,1);
-    static Type Type3 = new Type(4,15,1,1, 400,2);
+    static Type Type1 = new Type(3,10,2,1, 100,1.25f,1);
+    static Type Type2 = new Type(2,8, 3,2, 150,1.00f,2);
+    static Type Type3 = new Type(4,15,1,1, 400,2.00f,3);
 
     static Turret  TypeOneTurret  = new Turret(Age1.getTurretDamageBonus());
     static Turret  TypeTwoTurret  = new Turret(Age2.getTurretDamageBonus());
@@ -22,6 +22,7 @@ public class Console {
     public static Age[] arrayOfAges = {Age1, Age2,Age3, Age4};
     public static Turret[] arrayOfTurrets = {TypeOneTurret, TypeTwoTurret,TypeThreeTurret, TypeFourTurret};
     public static String[] arrayOfAgesBackgrounds = {"B1","B2","B3", "B4"};
+    // public static String[] Powers = {"p1","p2","p3","p4"};
 
     public static int arrayCount = 0;
     protected Age getNextAge(){

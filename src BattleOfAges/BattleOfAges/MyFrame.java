@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class MyFrame extends JFrame implements ActionListener {
 
@@ -29,13 +31,29 @@ public class MyFrame extends JFrame implements ActionListener {
         panel1.setMaximumSize(new Dimension(1920,80));
         panel2.setPreferredSize(new Dimension(1920,980));
         panel1.setLayout(new FlowLayout());
-        playerHealth =  new JLabel("Player's health: 100 %");
-        botHealth =  new JLabel("Enemy's health: 100%");
+        JProgressBar playerHealth = new JProgressBar(SwingConstants.HORIZONTAL,0, 100);
+        JProgressBar botHealth = new JProgressBar(SwingConstants.HORIZONTAL,0,100);
+        playerHealth.setStringPainted(true);
+        botHealth.setStringPainted(true);
+        playerHealth.setBackground(Color.green);
+        botHealth.setBackground(Color.RED);
+        playerHealth.setString("100%");
+        botHealth.setString("100%");
+        JProgressBar playerExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 1000);
+        JProgressBar botExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 1000);
+        playerExperience.setStringPainted(true);
+        botExperience.setStringPainted(true);
+        playerExperience.setBackground(Color.ORANGE);
+        botExperience.setBackground(Color.pink);
+        playerExperience.setString("0XP");
+        botExperience.setString("0XP");
+
         upgrade = new JButton("UPGRADE");
         upgrade.setBorderPainted(false);
         usePower = new JButton("usePOWER");
         usePower.setBorderPainted(false);
         panel1.add(playerHealth);
+        panel1.add(playerExperience);
         panel1.add(usePower);
         panel1.add(upgrade);
         type1 = new JButton();
@@ -44,6 +62,7 @@ public class MyFrame extends JFrame implements ActionListener {
         panel1.add(type1);
         panel1.add(type2);
         panel1.add(type3);
+        panel1.add(botExperience);
         panel1.add(botHealth);
         type1.setBorderPainted(false);
         type2.setBorderPainted(false);
@@ -61,6 +80,9 @@ public class MyFrame extends JFrame implements ActionListener {
         type1.setIcon(new ImageIcon("ba1t1O.PNG"));
         type2.setIcon(new ImageIcon("ba1t2O.PNG"));
         type3.setIcon(new ImageIcon("ba1t3O.PNG"));
+
+
+
 
         this.setIconImage(image.getImage());
         this.setLayout(new BorderLayout(0,0));
@@ -82,13 +104,27 @@ public class MyFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==this.usePower) {
-            Console.player.usePower();
-            // avelacnel zinvornery
+            Console.player.tryUsingPower();
+
 
         }
         else if(e.getSource()==this.upgrade) {
-            Console.player.changeAge();
-            this.panel2.changeBackground(Console.player.getAge().getImage());
+            Console.player.tryUpgradingAge();
+            if(Console.player.getAge()==Console.Age2){
+                this.type1.setIcon(new ImageIcon("ba2t1O.PNG"));
+                this.type2.setIcon(new ImageIcon("ba2t2O.PNG"));
+                this.type3.setIcon(new ImageIcon("ba2t3O.PNG"));
+            }
+            else if(Console.player.getAge()==Console.Age3){
+                this.type1.setIcon(new ImageIcon("ba3t1O.PNG"));
+                this.type2.setIcon(new ImageIcon("ba3t2O.PNG"));
+                this.type3.setIcon(new ImageIcon("ba3t3O.PNG"));
+            }
+            else if(Console.player.getAge()==Console.Age4){
+                this.type1.setIcon(new ImageIcon("ba4t1O.PNG"));
+                this.type2.setIcon(new ImageIcon("ba4t2O.PNG"));
+                this.type3.setIcon(new ImageIcon("ba4t3O.PNG"));
+            }
 
 
 
@@ -96,14 +132,15 @@ public class MyFrame extends JFrame implements ActionListener {
         else if(e.getSource()==this.type1) {
             Console.player.addWarriors(new Warriors(Console.player.getAge(),Console.Type1,-90));
 
+
         }
-        if(e.getSource()==this.type2) {
-            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type2,Console.player.warriors.length+1));
+        else if(e.getSource()==this.type2) {
+            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type2,-90));
 
 
         }
-        if(e.getSource()==this.type3) {
-            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type3,Console.player.warriors.length+1));
+        else if(e.getSource()==this.type3) {
+            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type3,-90));
 
         }
     }
