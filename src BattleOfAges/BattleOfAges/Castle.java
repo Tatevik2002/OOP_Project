@@ -26,6 +26,11 @@ public class Castle{
             System.out.println(e.getMessage());
             return false;
         }
-
+    }
+    public String damageToCastle(int damage){
+        this.castleHealth -= damage;
+        if (this.castleHealth <= 0)
+            return "Dead";
+        return "Alive";
     }
 }

@@ -9,10 +9,11 @@ public class Warriors {
 //    public Type3 type3 = new Type3(); //
     private Age thisAge;
     private Type thisType;
-    private int maxhealth = thisType.getHealth() * thisAge.getHealthBonus();
+    private final int maxhealth = thisType.getHealth() * thisAge.getHealthBonus();
     private int currentHealth = maxhealth;
     private int attack = thisType.getAttack() * thisAge.getAttackBonus();
     private int positionX = 0;
+    private int cost = (int)(thisType.getCost() * (1 + thisAge.getAgeNumber()*0.1f));
 
     public Warriors(Age thisAge,Type thisType,int positionOfX) {
         this.thisAge = thisAge;
@@ -39,6 +40,9 @@ public class Warriors {
         return maxhealth;
     }
     public float getExp(){return thisType.getExp();}
+    public int getCost() {
+        return cost;
+    }
     public void setCurrentHealth(int damageTaken) {
         this.currentHealth -= damageTaken;
     }
@@ -53,11 +57,3 @@ public class Warriors {
         return new Type(this.thisType);
     }
 }
-
-
-
-/* public Warriors(int currentHealth,int Attack,int positionOfX) {
-        this.currentHealth = currentHealth;
-        this.attack = Attack;
-        this.positionX = positionOfX;
-    } */
