@@ -36,11 +36,11 @@ public class MyPanel extends JPanel implements ActionListener{
         g2D.drawImage(backgroundImage, 0, 0, null);
         g2D.drawImage(castle,-90,450, null);
         g2D.drawImage(botCastle,1320,450, null);
-        Image image;
         if(Console.player.warriors.length != 0){
             for (Warriors element:Console.player.warriors){
                 String name;
-                name ="a"+(element.getAge().getAgeNumber()+1)+"t"+element.getThisType().getNumber()+"O.PNG";
+                name ="a"+(element.getAge().getAgeNumber())+"t"+element.getThisType().getNumber()+"O.PNG";
+
                 Image image1 = new ImageIcon(name).getImage();
                 g2D.drawImage(image1, element.getPositionX(), y, null);
             }//for player
@@ -48,15 +48,15 @@ public class MyPanel extends JPanel implements ActionListener{
         if(Console.Bot.getMyWarriorLength() != 0){
             for (Warriors element:Console.Bot.warriors){
                 String name;
-                name ="a"+(element.getAge().getAgeNumber()+1)+"t"+element.getThisType().getNumber()+".PNG";
+                name ="a"+(element.getAge().getAgeNumber())+"t"+element.getThisType().getNumber()+".PNG";
                 Image image1 = new ImageIcon(name).getImage();
                 g2D.drawImage(image1, element.getPositionX(), y, null);
 
             }//for bot
         }
 
-        //move
-
+        Console.player.ToBeOrNotToBe();
+        Console.Bot.ToBeOrNotToBe();
 
     }
 

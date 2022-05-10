@@ -22,13 +22,13 @@ public class Type {
         this.number = number;
     }
     public Type(Type other){
-        int attack = other.attack;
-        int health = other.health;
-        int movementSpeed = other.movementSpeed;
-        int range = other.range;
-        int cost= other.cost;
-        float exp = other.exp;
-        int number = other.number;
+        this.attack = other.attack;
+        this.health = other.health;
+        this.movementSpeed = other.movementSpeed;
+        this.range = other.range;
+        this.cost= other.cost;
+        this.exp = other.exp;
+        this.number = other.number;
     }
 
 

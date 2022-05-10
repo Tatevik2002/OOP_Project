@@ -163,20 +163,18 @@ public class MyFrame extends JFrame implements ActionListener {
 
         }
         else if(e.getSource()==this.type1) {
-            Console.player.addWarriors(new Warriors(Console.player.getAge(),Console.Type1,150));
-
+            Console.player.tryCreatingUnit(Console.Type1);
 
 
         }
         else if(e.getSource()==this.type2) {
-            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type2,150));
-
+            Console.player.tryCreatingUnit(Console.Type2);
 
         }
         else if(e.getSource()==this.type3) {
-            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type3,150));
-
+            Console.player.tryCreatingUnit(Console.Type3);
         }
+        repaint();
     }
 
 

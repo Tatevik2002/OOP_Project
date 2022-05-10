@@ -38,10 +38,10 @@ public class Console {
     protected Turret getNextTurret(){
         return arrayOfTurrets[arrayCount];
     }
-    static Warriors[] PlayerWarriors = new Warriors[0];
-    static Warriors[] BotWarriors = new Warriors[0];
+    //    static Warriors[] PlayerWarriors = new Warriors[0];
+//    static Warriors[] BotWarriors = new Warriors[0];
     static int position1 = 0;
     static int position2 = 0;
-    static Player player = new Player("Left", PlayerWarriors); // player left
-    static Player Bot    = new Player("Right", BotWarriors); // bot right
+    static Bot Bot   = new Bot("Right");
+    static Player player   = new Player("Left");
 }

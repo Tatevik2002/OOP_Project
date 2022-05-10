@@ -24,6 +24,7 @@ public class Age {
         this.power = new Power(this.image);
         this.turretDamageBonus = turretDamageBonus;
         this.castleHealthBonus = castleHealthBonus;
+        this.ageNumber = ageNumber;
     }
     public Age(Age theAge) {
         this.healthBonus = theAge.healthBonus;
@@ -34,6 +35,7 @@ public class Age {
         this.power = theAge.getPower();
         this.turretDamageBonus = theAge.turretDamageBonus;
         this.castleHealthBonus = theAge.castleHealthBonus;
+        this.ageNumber = theAge.ageNumber;
     }
 
     public Power getPower(){

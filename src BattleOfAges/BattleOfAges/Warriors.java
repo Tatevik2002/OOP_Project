@@ -12,7 +12,7 @@ public class Warriors {
     private int maxhealth  ;
     private int currentHealth;
     private int attack;
-    private int positionX = 150;
+    private int positionX ;
     private int cost ;
     public Warriors(Age thisAge,Type thisType,int positionOfX) {
         this.thisAge = thisAge;
