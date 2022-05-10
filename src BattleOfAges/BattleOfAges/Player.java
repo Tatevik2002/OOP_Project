@@ -26,10 +26,10 @@ public class Player {
         money = 500;
         currentAge = new Age(Console.arrayOfAges[0]);
         timeNeededToUsePower = 120; // seconds
-        if(LeftOrRight == "Left"){
+        if(LeftOrRight.equals("Left")){
             castlePosition[0] = -60;
             castlePosition[1] = 480;
-        }else if(LeftOrRight == "Right"){
+        }else if(LeftOrRight.equals("Right")){
             castlePosition[0] = 1080-60;
             castlePosition[1] = 480;
         }
@@ -174,9 +174,13 @@ public class Player {
 //    }
 
     public Age getAge(){
-        return new Age(currentAge.getAgeNumber(), currentAge.getImage(), currentAge.getHealthBonus(),
-                currentAge.getAttackBonus(), currentAge.getPowerBonus(),currentAge.getCastleHealthBonus(),
-                currentAge.getTurretDamageBonus(), currentAge.getExpCost());
+        if (this.currentAge != null){
+            return this.currentAge;
+//            return new Age(currentAge.getAgeNumber(), currentAge.getImage(), currentAge.getHealthBonus(),
+//                    currentAge.getAttackBonus(), currentAge.getPowerBonus(),currentAge.getCastleHealthBonus(),
+//                    currentAge.getTurretDamageBonus(), currentAge.getExpCost());
+        }
+        return Console.Age1;
     }
     public int getCastleHealthNow() {
         return castle.getCastleHealth();

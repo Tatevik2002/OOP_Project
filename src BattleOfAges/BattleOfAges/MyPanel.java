@@ -37,20 +37,25 @@ public class MyPanel extends JPanel implements ActionListener{
         g2D.drawImage(castle,-90,450, null);
         g2D.drawImage(botCastle,1320,450, null);
         Image image = new ImageIcon("a1t1O.PNG").getImage();
-        for (Warriors element:Console.player.warriors){
-            String name;
-            name ="a"+element.getAge().getAgeNumber()+"t"+element.getThisType().getNumber()+"O.PNG";
-            Image image1 = new ImageIcon(name).getImage();
-            g2D.drawImage(image, element.getPositionX(), y, null);
+        if(Console.player.warriors.length != 0){
+            for (Warriors element:Console.player.warriors){
+                String name;
+                name ="a"+element.getAge().getAgeNumber()+"t"+element.getThisType().getNumber()+"O.PNG";
+                Image image1 = new ImageIcon(name).getImage();
+                g2D.drawImage(image, element.getPositionX(), y, null);
 
-        }//for player
-        for (Warriors element:Console.Bot.warriors){
-            String name;
-            name ="a"+element.getAge().getAgeNumber()+"t"+element.getThisType().getNumber()+".PNG";
-            Image image1 = new ImageIcon(name).getImage();
-            g2D.drawImage(image, element.getPositionX(), y, null);
+            }//for player
+        }
+        if(Console.Bot.getMyWarriorLength() != 0){
+            for (Warriors element:Console.Bot.warriors){
+                String name;
+                name ="a"+element.getAge().getAgeNumber()+"t"+element.getThisType().getNumber()+".PNG";
+                Image image1 = new ImageIcon(name).getImage();
+                g2D.drawImage(image, element.getPositionX(), y, null);
 
-        } //for bot
+            }//for bot
+        }
+
         //move
         //bar
 
