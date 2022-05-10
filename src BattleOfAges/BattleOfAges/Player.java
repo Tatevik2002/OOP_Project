@@ -1,6 +1,8 @@
 package BattleOfAges;
 import BattleOfAges.TurretTypes.Turret;
 import BattleOfAges.Type.*;
+import jdk.jfr.Label;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -91,18 +93,45 @@ public class Player {
         else
             return null;
     }
-    public void ToBeOrNotToBe(){
-        if(warriors.length > 0)
-        for(int i = 0; i < warriors.length; i++){
-            Warriors w = getClosestEnemyWarrior();
-            int myX = warriors[i].getPositionX();
-            if (w != null){
-                if (w.getPositionX() - myX <100)
-                    System.out.println("hit ara ara");
+    public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
+        if(warriors.length > 0) {
+            Warriors wEnemy = getClosestEnemyWarrior();
+            Warriors wPlayer = warriors[warriors.length-1];
+            if( wEnemy.getPositionX() - wPlayer.getPositionX() > 100){
+                wPlayer.setPosition(wPlayer.getPositionX() + 100);
             }
-            warriors[i].setPosition(warriors[i].getPositionX() + 100);
+            if(warriors.length > 1){ // for mooving all the warriors in the back
+                int i = warriors.length-1;
+                while(i > 0){
+                    int frontWarriorX = warriors[i].getPositionX();
+                    int backWarriorX = warriors[i-1].getPositionX();
+                    if( frontWarriorX - backWarriorX > 0){
+                        warriors[i-1].setPosition(warriors[i].getPositionX() + 100);
+                    }
+                    i--;
+                }
+            }
+            // @HIT
+            if (wEnemy != null){
+                if (wEnemy.getPositionX() - wPlayer.getPositionX() < 100){
+                    System.out.println("hit ara ara");
+                    wEnemy.setCurrentHealth(wPlayer.getAttack());
+                    wPlayer.setCurrentHealth(wEnemy.getAttack());
+                    if (wPlayer.getCurrentHealth() <= 0){
+                        this.changeArray(this);
+                    }
+                    if(wEnemy.getCurrentHealth() <= 0){
+                        this.exp += wEnemy.getThisType().getExp();
+                        myEnemy.changeArray(myEnemy);
+                    }
+                    if(wEnemy.getCurrentHealth() <= 0){
+                        myEnemy.changeArray(myEnemy);
+                    }
+                }
+            }
         }
     }
+
 
     public void tryUsingPower(){
         int leastPossibleExpToBeInThisAge = this.currentAge.getAgeNumber() * 24;
