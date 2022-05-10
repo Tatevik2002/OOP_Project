@@ -15,13 +15,19 @@ public class MyFrame extends JFrame implements ActionListener {
     Panel panel1;
     MyPanel panel2;
     JButton usePower;
-    JLabel playerHealth;
-    JLabel botHealth;
     JButton upgrade;
     JButton type1;
     JButton type2;
     JButton type3;
-
+    Timer timer;
+    JProgressBar playerHealth;
+    JProgressBar botHealth;
+    JProgressBar playerExperience;
+    JProgressBar botExperience;
+    Integer  castleHealthInt;
+    Integer  castleHealthIntBot;
+    Float  playerExperienceFloat;
+    Float  botExperienceFloat ;
 
     MyFrame(){
         ImageIcon image = new ImageIcon("logo.png");
@@ -31,26 +37,33 @@ public class MyFrame extends JFrame implements ActionListener {
         panel1.setMaximumSize(new Dimension(1920,80));
         panel2.setPreferredSize(new Dimension(1920,980));
         panel1.setLayout(new FlowLayout());
-        JProgressBar playerHealth = new JProgressBar(SwingConstants.HORIZONTAL,0, 100);
-        JProgressBar botHealth = new JProgressBar(SwingConstants.HORIZONTAL,0,100);
+        playerHealth = new JProgressBar(SwingConstants.HORIZONTAL,0, 400);
+        botHealth = new JProgressBar(SwingConstants.HORIZONTAL,0,400);
         playerHealth.setStringPainted(true);
         botHealth.setStringPainted(true);
         playerHealth.setBackground(Color.green);
         botHealth.setBackground(Color.RED);
-        playerHealth.setString("100%");
-        botHealth.setString("100%");
-        JProgressBar playerExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 1000);
-        JProgressBar botExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 1000);
+        castleHealthInt = Console.player.castle.getCastleHealth();
+        this.playerHealth.setString(castleHealthInt.toString());
+        castleHealthIntBot = Console.Bot.castle.getCastleHealth();
+        this.botHealth.setString(castleHealthIntBot.toString());
+        playerExperienceFloat = Console.player.getExp();
+        botExperienceFloat = Console.player.getExp();
+
+        playerExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 1000);
+        botExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 1000);
+
         playerExperience.setStringPainted(true);
         botExperience.setStringPainted(true);
+        this.playerExperience.setString( playerExperienceFloat.toString()+"XP");
+        this.playerExperience.setString( botExperienceFloat.toString()+"XP");
+
         playerExperience.setBackground(Color.ORANGE);
         botExperience.setBackground(Color.pink);
-        playerExperience.setString("0XP");
-        botExperience.setString("0XP");
 
-        upgrade = new JButton("UPGRADE");
+        upgrade = new JButton("Upgrade");
         upgrade.setBorderPainted(false);
-        usePower = new JButton("usePOWER");
+        usePower = new JButton("Use power");
         usePower.setBorderPainted(false);
         panel1.add(playerHealth);
         panel1.add(playerExperience);
@@ -80,18 +93,24 @@ public class MyFrame extends JFrame implements ActionListener {
         type1.setIcon(new ImageIcon("ba1t1O.PNG"));
         type2.setIcon(new ImageIcon("ba1t2O.PNG"));
         type3.setIcon(new ImageIcon("ba1t3O.PNG"));
-
+        type1.addActionListener(this);
+        type2.addActionListener(this);
+        type3.addActionListener(this);
+        upgrade.addActionListener(this);
+        usePower.addActionListener(this);
+        timer = new Timer(2500, this);
+        timer.start();
 
 
 
         this.setIconImage(image.getImage());
         this.setLayout(new BorderLayout(0,0));
-
         this.setTitle("Age of Wars");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
         this.setSize(1920,1080);
         this.setVisible(true);
+
 
         this.add(panel1,BorderLayout.NORTH);
         this.add(panel2,BorderLayout.CENTER);
@@ -100,9 +119,21 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
 
+
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        castleHealthInt = Console.player.castle.getCastleHealth();
+        castleHealthIntBot = Console.player.castle.getCastleHealth();
+        playerExperienceFloat = Console.player.getExp();
+        botExperienceFloat = Console.player.getExp();
+
+        this.playerHealth.setString(castleHealthInt.toString());
+        this.botHealth.setString(castleHealthIntBot.toString());
+        this.playerExperience.setString( playerExperienceFloat.toString()+"XP");
+        this.botExperience.setString( botExperienceFloat.toString()+"XP");
+
+
         if(e.getSource()==this.usePower) {
             Console.player.tryUsingPower();
 
@@ -110,6 +141,8 @@ public class MyFrame extends JFrame implements ActionListener {
         }
         else if(e.getSource()==this.upgrade) {
             Console.player.tryUpgradingAge();
+
+
             if(Console.player.getAge()==Console.Age2){
                 this.type1.setIcon(new ImageIcon("ba2t1O.PNG"));
                 this.type2.setIcon(new ImageIcon("ba2t2O.PNG"));
@@ -130,17 +163,18 @@ public class MyFrame extends JFrame implements ActionListener {
 
         }
         else if(e.getSource()==this.type1) {
-            Console.player.addWarriors(new Warriors(Console.player.getAge(),Console.Type1,-90));
+            Console.player.addWarriors(new Warriors(Console.player.getAge(),Console.Type1,150));
+
 
 
         }
         else if(e.getSource()==this.type2) {
-            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type2,-90));
+            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type2,150));
 
 
         }
         else if(e.getSource()==this.type3) {
-            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type3,-90));
+            Console.player.addWarriors(new Warriors(Console.player.getAge(), Console.Type3,150));
 
         }
     }

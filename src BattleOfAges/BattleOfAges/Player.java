@@ -240,6 +240,10 @@ public class Player {
         this.warriors = changeArray(this, newWarrior);
     }
     //adds the newly created warrior to the player's warriors array.
+    public float  getExp(){
+        return this.exp;
+
+    }
 }
 
 

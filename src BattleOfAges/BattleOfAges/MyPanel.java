@@ -36,67 +36,65 @@ public class MyPanel extends JPanel implements ActionListener{
         g2D.drawImage(backgroundImage, 0, 0, null);
         g2D.drawImage(castle,-90,450, null);
         g2D.drawImage(botCastle,1320,450, null);
-        Image image = new ImageIcon("a1t1O.PNG").getImage();
+        Image image;
         if(Console.player.warriors.length != 0){
             for (Warriors element:Console.player.warriors){
                 String name;
-                name ="a"+element.getAge().getAgeNumber()+"t"+element.getThisType().getNumber()+"O.PNG";
+                name ="a"+(element.getAge().getAgeNumber()+1)+"t"+element.getThisType().getNumber()+"O.PNG";
                 Image image1 = new ImageIcon(name).getImage();
-                g2D.drawImage(image, element.getPositionX(), y, null);
-
+                g2D.drawImage(image1, element.getPositionX(), y, null);
             }//for player
         }
         if(Console.Bot.getMyWarriorLength() != 0){
             for (Warriors element:Console.Bot.warriors){
                 String name;
-                name ="a"+element.getAge().getAgeNumber()+"t"+element.getThisType().getNumber()+".PNG";
+                name ="a"+(element.getAge().getAgeNumber()+1)+"t"+element.getThisType().getNumber()+".PNG";
                 Image image1 = new ImageIcon(name).getImage();
-                g2D.drawImage(image, element.getPositionX(), y, null);
+                g2D.drawImage(image1, element.getPositionX(), y, null);
 
             }//for bot
         }
 
         //move
-        //bar
+
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.backgroundImage = (new ImageIcon(Console.player.getAge().getImage())).getImage();
-        if(Console.player.getAge()==Console.Age1){
-            this.castle = new ImageIcon("castle1O").getImage();
+        this.backgroundImage = new ImageIcon(Console.player.getAge().getImage()).getImage();
+        if(Console.player.getAge().getAgeNumber()==1){
+            this.castle = new ImageIcon("castle1O.png").getImage();
         }
-        else if(Console.player.getAge()==Console.Age2){
-            this.castle = new ImageIcon("castle2O").getImage();
+        else if(Console.player.getAge().getAgeNumber()==2){
+            this.castle = new ImageIcon("castle2O.png").getImage();
         }
-        else if(Console.player.getAge()==Console.Age3){
-            this.castle = new ImageIcon("castle3O").getImage();
+        else if(Console.player.getAge().getAgeNumber()==3){
+            this.castle = new ImageIcon("castle3O.png").getImage();
         }
-        else if(Console.player.getAge()==Console.Age4){
-            this.castle = new ImageIcon("castle4O").getImage();
-        }
-
-
-        if(Console.Bot.getAge()==Console.Age1){
-            this.castle = new ImageIcon("castle1").getImage();
-        }
-        else if(Console.Bot.getAge()==Console.Age2){
-            this.castle = new ImageIcon("castle2O").getImage();
-        }
-        else if(Console.Bot.getAge()==Console.Age3){
-            this.castle = new ImageIcon("castle3O").getImage();
-        }
-
-        else if(Console.player.getAge()==Console.Age4){
-            this.castle = new ImageIcon("castle4O").getImage();
+        else if(Console.player.getAge().getAgeNumber()==4){
+            this.castle = new ImageIcon("castle4O.png").getImage();
         }
 
 
+        if(Console.Bot.getAge().getAgeNumber()==1){
+            this.castle = new ImageIcon("castle1.png").getImage();
+        }
+        else if(Console.Bot.getAge().getAgeNumber()==2){
+            this.castle = new ImageIcon("castle2.png").getImage();
+        }
+        else if(Console.Bot.getAge().getAgeNumber()==3){
+            this.castle = new ImageIcon("castle3.png").getImage();
+        }
 
-
-
+        else if(Console.Bot.getAge().getAgeNumber()==4){
+            this.castle = new ImageIcon("castle4.png").getImage();
+        }
         repaint();
+
+
+
+
 
 
     }

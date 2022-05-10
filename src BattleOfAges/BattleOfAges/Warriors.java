@@ -9,22 +9,28 @@ public class Warriors {
 //    public Type3 type3 = new Type3(); //
     private Age thisAge;
     private Type thisType;
-    private final int maxhealth = thisType.getHealth() * thisAge.getHealthBonus();
-    private int currentHealth = maxhealth;
-    private int attack = thisType.getAttack() * thisAge.getAttackBonus();
-    private int positionX = 0;
-    private int cost = (int)(thisType.getCost() * (1 + thisAge.getAgeNumber()*0.1f));
-
+    private int maxhealth  ;
+    private int currentHealth;
+    private int attack;
+    private int positionX = 150;
+    private int cost ;
     public Warriors(Age thisAge,Type thisType,int positionOfX) {
         this.thisAge = thisAge;
         this.thisType = thisType;
         this.positionX = positionOfX;
+        this.maxhealth = thisType.getHealth() * thisAge.getHealthBonus();
+        this.currentHealth = maxhealth;
+        this.attack = thisType.getAttack() * thisAge.getAttackBonus();
+        this.cost= (int)(thisType.getCost() * (1 + thisAge.getAgeNumber()*0.1f));
     }
     public Warriors(Warriors other){
         this.thisAge = other.thisAge;
         this.thisType = other.thisType;
         this.positionX = other.positionX;
         this.attack= other.attack;
+        this.maxhealth = other.maxhealth;
+        this.currentHealth = other.currentHealth;
+        this.cost = other.cost;
     }
 
     public int getCurrentHealth() {
