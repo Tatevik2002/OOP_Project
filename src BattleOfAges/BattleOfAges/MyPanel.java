@@ -67,6 +67,7 @@ public class MyPanel extends JPanel implements ActionListener{
             this.castle = new ImageIcon("castle1O.png").getImage();
         }
         else if(Console.player.getAge().getAgeNumber()==2){
+            System.out.println("k");
             this.castle = new ImageIcon("castle2O.png").getImage();
         }
         else if(Console.player.getAge().getAgeNumber()==3){

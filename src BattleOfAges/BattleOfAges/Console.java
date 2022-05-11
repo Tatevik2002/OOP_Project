@@ -6,9 +6,9 @@ import BattleOfAges.Type.Type;
 public class Console {
     void attack(){    }
     static Age Age1 = new Age(1,"background_age1.jpg",100,100, 10,1,10,2, 24);
-    static Age Age2 = new Age(2,"background_age2.png",140,140, 14,2,20,2, 200);
-    static Age Age3 = new Age(3,"background_age3.png",200,200, 20,3,30,2, 300);
-    static Age Age4 = new Age(4,"background_age4.png",280,280, 28,4,40,2, 400);
+    static Age Age2 = new Age(2,"background_age2.jpg",140,140, 14,2,20,2, 200);
+    static Age Age3 = new Age(3,"background_age3.jpg",200,200, 20,3,30,2, 300);
+    static Age Age4 = new Age(4,"background_age4.jpg",280,280, 28,4,40,2, 400);
 
     static Type Type1 = new Type(3,10,2,1, 100,1.25f,1);
     static Type Type2 = new Type(2,8, 3,2, 150,1.00f,2);

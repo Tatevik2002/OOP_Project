@@ -12,7 +12,7 @@ public class Player {
     protected Age currentAge;
     protected int ageIDinArray = 0;
     private int money;
-    protected float exp;
+    protected float exp ;
     protected Warriors[] warriors = new Warriors[0];
     protected Castle castle = new Castle(this);
     //public Player myEnemy = Console.Bot;
@@ -22,14 +22,14 @@ public class Player {
     protected String name = "Player";
 
     Player(String LeftOrRight){
-        exp = 0;
+        exp = 100000;//change
         money = 500;
         currentAge = new Age(Console.arrayOfAges[0]);
         if(LeftOrRight.equals("Left")){
-            castlePosition[0] = -60;
+            castlePosition[0] = -90;
             castlePosition[1] = 480;
         }else if(LeftOrRight.equals("Right")){
-            castlePosition[0] = 1080-60;
+            castlePosition[0] = 1080-90;
             castlePosition[1] = 480;
         }
         else   {
@@ -111,10 +111,11 @@ public class Player {
     // BARD METHODS
     public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
         if(warriors.length > 0) {
-            Warriors wEnemy = getClosestEnemyWarrior();
-            if (Console.Bot.warriors.length > 0) {
-
-                Warriors wPlayer = warriors[warriors.length - 1];
+            Warriors wPlayer = warriors[warriors.length - 1];
+            System.out.println();
+            if (Console.Bot.warriors.length > 0){
+                Warriors wEnemy = getClosestEnemyWarrior();
+                System.out.println("Closest Enemy Position is: " + wEnemy.getPositionX());
                 if (wEnemy.getPositionX() - wPlayer.getPositionX() > 100) {
                     wPlayer.setPosition(wPlayer.getPositionX() + 100);
                 } else if (Console.Bot.getCastlePosition()[0] - wPlayer.getPositionX() > 100) {
@@ -131,7 +132,7 @@ public class Player {
                         int frontWarriorX = warriors[i].getPositionX();
                         int backWarriorX = warriors[i - 1].getPositionX();
                         if (frontWarriorX - backWarriorX > 100) {
-                            warriors[i - 1].setPosition(warriors[i].getPositionX() + 100);
+                            warriors[i-1].setPosition(warriors[i].getPositionX() + 100);
                         }
                         i--;
                     }
@@ -155,6 +156,9 @@ public class Player {
                         }
                     }
                 }
+            }
+            else{
+                wPlayer.setPosition(wPlayer.getPositionX() + 100);
             }
         }
     }
@@ -182,7 +186,7 @@ public class Player {
         if (n >= 5) {
             System.out.println("last age reached");
         } else if (exp >= 24 * n) {
-            currentAge = Console.arrayOfAges[this.currentAge.getAgeNumber() + 1];
+            currentAge = Console.arrayOfAges[this.currentAge.getAgeNumber()];
         } else
             System.out.println("not enough exp");
     }
