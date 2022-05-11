@@ -112,7 +112,7 @@ public class Player {
     public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
         if(warriors.length > 0) {
             Warriors wPlayer = warriors[warriors.length - 1];
-            System.out.println("player: warrior exists at " + wPlayer.getPositionX());
+            System.out.println("player: first warrior is at " + wPlayer.getPositionX());
             if (Console.Bot.warriors.length > 0) {
                 Warriors wEnemy = getClosestEnemyWarrior();
                 System.out.println("player: enemy warrior detected. ");
@@ -134,7 +134,7 @@ public class Player {
                     }
                 }
             } else {
-                if (Console.Bot.getCastlePosition()[0] - wPlayer.getPositionX() < 101) { //1320 3 hate 1110 //-130 , -90
+                if (Console.Bot.getCastlePosition()[0] - wPlayer.getPositionX() < - 251) { //1320 3 hate 1110 //-130 , -90
 //                    System.out.println("player: Enemy Castle Health is " + Console.Bot.castle.getCastleHealth());
 //                    System.out.println("player: my damage is " + wPlayer.getAttack());
                     System.out.println("Bot Castle pos is " + Console.Bot.getCastlePosition()[0]);
@@ -146,16 +146,17 @@ public class Player {
                         System.exit(0);
                     }
                 } else {
-                    wPlayer.setPosition(wPlayer.getPositionX() + 50);
+                    wPlayer.setPosition(wPlayer.getPositionX() + 25);
                     System.out.println("player: moving front unit (no enemy units)");
                 }
                 if (warriors.length > 1) { // for mooving all the warriors in the back
                     int i = 0;
-                    while (i < warriors.length - 2) {
+                    System.out.println("player: warrior count " + warriors.length);
+                    while (i < warriors.length - 1) {
                         int frontWarriorX = warriors[i].getPositionX();
                         int backWarriorX = warriors[i + 1].getPositionX();
-                        if (frontWarriorX - backWarriorX > 50) {
-                            warriors[i - 1].setPosition(warriors[i].getPositionX() + 50);
+                        if (frontWarriorX - backWarriorX > 25) {
+                            warriors[i + 1].setPosition(warriors[i + 1].getPositionX() + 25);
                             System.out.println("player: back warrior moved");
                         }
                         i++;
@@ -247,5 +248,4 @@ public class Player {
     public float getExp(){
         return this.exp;
     }
-    //adds the newly created warrior to the player's warriors array.
 }

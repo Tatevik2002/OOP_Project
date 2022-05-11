@@ -98,7 +98,7 @@ public class MyFrame extends JFrame implements ActionListener {
         type3.addActionListener(this);
         upgrade.addActionListener(this);
         usePower.addActionListener(this);
-        timer = new Timer(2500, this);
+        timer = new Timer(1000, this);
         timer.start();
 
 
