@@ -20,7 +20,7 @@ public class Warriors {
         this.positionX = positionOfX;
         this.maxhealth = thisType.getHealth() * thisAge.getHealthBonus();
         this.currentHealth = maxhealth;
-        this.attack = thisType.getAttack() * thisAge.getAttackBonus();
+        this.attack = (int)(thisType.getAttack() * (thisAge.getAttackBonus() / 100));
         this.cost= (int)(thisType.getCost() * (1 + thisAge.getAgeNumber()*0.1f));
     }
     public Warriors(Warriors other){

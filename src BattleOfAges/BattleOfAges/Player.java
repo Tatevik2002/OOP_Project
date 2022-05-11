@@ -22,8 +22,8 @@ public class Player {
     protected String name = "Player";
 
     Player(String LeftOrRight){
-        exp = 100000;//change
-        money = 500;
+        exp = 10000;//change
+        money = 5000;// change
         currentAge = new Age(Console.arrayOfAges[0]);
         if(LeftOrRight.equals("Left")){
             castlePosition[0] = -90;
@@ -112,53 +112,56 @@ public class Player {
     public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
         if(warriors.length > 0) {
             Warriors wPlayer = warriors[warriors.length - 1];
-            System.out.println();
-            if (Console.Bot.warriors.length > 0){
+            System.out.println("player: warrior exists at " + wPlayer.getPositionX());
+            if (Console.Bot.warriors.length > 0) {
                 Warriors wEnemy = getClosestEnemyWarrior();
-                System.out.println("Closest Enemy Position is: " + wEnemy.getPositionX());
-                if (wEnemy.getPositionX() - wPlayer.getPositionX() > 100) {
-                    wPlayer.setPosition(wPlayer.getPositionX() + 100);
-                } else if (Console.Bot.getCastlePosition()[0] - wPlayer.getPositionX() > 100) {
+                System.out.println("player: enemy warrior detected. ");
+                System.out.print("Closest Enemy Position is: " + wEnemy.getPositionX());
+                // @HIT
+                if (wEnemy.getPositionX() - wPlayer.getPositionX() < 101) {
+                    System.out.println("ALL: hitting each other");
+                    wEnemy.setCurrentHealth(wPlayer.getAttack());
+                    wPlayer.setCurrentHealth(wEnemy.getAttack());
+                    if (wPlayer.getCurrentHealth() <= 0) {
+                        this.changeArray();
+                        System.out.println("player: front unit died");
+                    }
+                    if (wEnemy.getCurrentHealth() <= 0) {
+                        this.exp += wEnemy.getThisType().getExp();
+                        this.money += (int) (wEnemy.getCost() * 1.2);
+                        Console.Bot.changeArray();
+                        System.out.println("enemy: front unit died");
+                    }
+                }
+            } else {
+                if (Console.Bot.getCastlePosition()[0] - wPlayer.getPositionX() < 101) { //1320 3 hate 1110 //-130 , -90
+//                    System.out.println("player: Enemy Castle Health is " + Console.Bot.castle.getCastleHealth());
+//                    System.out.println("player: my damage is " + wPlayer.getAttack());
+                    System.out.println("Bot Castle pos is " + Console.Bot.getCastlePosition()[0]);
+                    System.out.println("Player Position " + wPlayer.getPositionX());
                     if (Console.Bot.castle.damageToCastle(wPlayer.getAttack()) == "Dead") {
                         System.out.println("the " + this.name + " has won the game.");
-                        System.out.println("thank you for playing the game");
+//                        System.out.println("thank you for playing the game");
                         System.out.println("credits: Olga, Tatev, Gabriel");
                         System.exit(0);
                     }
+                } else {
+                    wPlayer.setPosition(wPlayer.getPositionX() + 50);
+                    System.out.println("player: moving front unit (no enemy units)");
                 }
                 if (warriors.length > 1) { // for mooving all the warriors in the back
-                    int i = warriors.length - 1;
-                    while (i > 0) {
+                    int i = 0;
+                    while (i < warriors.length - 2) {
                         int frontWarriorX = warriors[i].getPositionX();
-                        int backWarriorX = warriors[i - 1].getPositionX();
-                        if (frontWarriorX - backWarriorX > 100) {
-                            warriors[i-1].setPosition(warriors[i].getPositionX() + 100);
+                        int backWarriorX = warriors[i + 1].getPositionX();
+                        if (frontWarriorX - backWarriorX > 50) {
+                            warriors[i - 1].setPosition(warriors[i].getPositionX() + 50);
+                            System.out.println("player: back warrior moved");
                         }
-                        i--;
+                        i++;
                     }
                 }
-                // @HIT
-                if (wEnemy != null) {
-                    if (wEnemy.getPositionX() - wPlayer.getPositionX() < 100) {
-                        System.out.println("hit ara ara");
-                        wEnemy.setCurrentHealth(wPlayer.getAttack());
-                        wPlayer.setCurrentHealth(wEnemy.getAttack());
-                        if (wPlayer.getCurrentHealth() <= 0) {
-                            this.changeArray();
-                        }
-                        if (wEnemy.getCurrentHealth() <= 0) {
-                            this.exp += wEnemy.getThisType().getExp();
-                            this.money += (int) (wEnemy.getCost() * 1.2);
-                            Console.Bot.changeArray();
-                        }
-                        if (wEnemy.getCurrentHealth() <= 0) {
-                            Console.Bot.changeArray();
-                        }
-                    }
-                }
-            }
-            else{
-                wPlayer.setPosition(wPlayer.getPositionX() + 100);
+
             }
         }
     }

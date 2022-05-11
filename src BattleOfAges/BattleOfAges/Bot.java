@@ -56,32 +56,22 @@ public class Bot extends Player{
 
     // BARD METHODS
     public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
-        if(warriors.length > 0) {
-            Warriors wEnemy = getClosestEnemyWarrior();
+        /* if(warriors.length > 0) {
             Warriors wPlayer = warriors[warriors.length-1];
-            if(wPlayer.getPositionX() - wEnemy.getPositionX() > 100){
-                wPlayer.setPosition(wPlayer.getPositionX() - 100);
-            }else if(wPlayer.getPositionX() - myEnemy.getCastlePosition()[0] < 101){
-                if(myEnemy.castle.damageToCastle(wPlayer.getAttack()) == "Dead"){
-                    System.out.println("the " + this.name + " has won the game.");
-                    System.out.println("thank you for playing the game");
-                    System.out.println("credits: Olga, Tatev, Gabriel");
-                    System.exit(0);
-                }
-            }
-            if(warriors.length > 1){ // for mooving all the warriors in the back
-                int i = warriors.length-1;
-                while(i > 0){
-                    int frontWarriorX = warriors[i].getPositionX();
-                    int backWarriorX = warriors[i-1].getPositionX();
-                    if( backWarriorX - frontWarriorX > 100){
-                        warriors[i-1].setPosition(warriors[i].getPositionX() - 100);
+            if(Console.Bot.getMyWarriorLength() > 0){
+                Warriors wEnemy = getClosestEnemyWarrior();
+                if(wPlayer.getPositionX() - wEnemy.getPositionX() > 100){
+                    wPlayer.setPosition(wPlayer.getPositionX() - 100);
+                    System.out.println("first player warrior moved from " + wPlayer.getPositionX());
+                }else if(wPlayer.getPositionX() - myEnemy.getCastlePosition()[0] < 101){
+                    if(myEnemy.castle.damageToCastle(wPlayer.getAttack()) == "Dead"){
+                        System.out.println("the " + this.name + " has won the game.");
+                        System.out.println("thank you for playing the game");
+                        System.out.println("credits: Olga, Tatev, Gabriel");
+                        System.exit(0);
                     }
-                    i--;
                 }
-            }
-            // @HIT
-            if (wEnemy != null){
+                // @HIT
                 if (wEnemy.getPositionX() - wPlayer.getPositionX() < 100){
                     System.out.println("hit ara ara");
                     wEnemy.setCurrentHealth(wPlayer.getAttack());
@@ -99,7 +89,20 @@ public class Bot extends Player{
                     }
                 }
             }
-        }
+            else{
+                if(warriors.length > 1){ // for mooving all the warriors in the back
+                    int i = warriors.length-1;
+                    while(i > 0){
+                        int frontWarriorX = warriors[i].getPositionX();
+                        int backWarriorX = warriors[i-1].getPositionX();
+                        if( backWarriorX - frontWarriorX > 100){
+                            warriors[i-1].setPosition(warriors[i].getPositionX() - 100);
+                        }
+                        i--;
+                    }
+                }
+            }
+        } */
     }
     public void tryUsingPower(){
         int leastPossibleExpToBeInThisAge = this.currentAge.getAgeNumber() * 24;

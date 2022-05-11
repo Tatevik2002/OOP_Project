@@ -64,17 +64,17 @@ public class MyPanel extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         this.backgroundImage = new ImageIcon(Console.player.getAge().getImage()).getImage();
         if(Console.player.getAge().getAgeNumber()==1){
-            this.castle = new ImageIcon("castle1O.png").getImage();
+            this.castle = new ImageIcon("castle1.png").getImage();
         }
         else if(Console.player.getAge().getAgeNumber()==2){
             System.out.println("k");
-            this.castle = new ImageIcon("castle2O.png").getImage();
+            this.castle = new ImageIcon("castle2.png").getImage();
         }
         else if(Console.player.getAge().getAgeNumber()==3){
-            this.castle = new ImageIcon("castle3O.png").getImage();
+            this.castle = new ImageIcon("castle3.png").getImage();
         }
         else if(Console.player.getAge().getAgeNumber()==4){
-            this.castle = new ImageIcon("castle4O.png").getImage();
+            this.castle = new ImageIcon("castle4.png").getImage();
         }
 
 
