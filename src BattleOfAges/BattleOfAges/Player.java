@@ -1,4 +1,5 @@
 package BattleOfAges;
+
 import BattleOfAges.TurretTypes.Turret;
 import BattleOfAges.Type.*;
 import jdk.jfr.Label;
@@ -12,7 +13,7 @@ public class Player {
     protected Age currentAge;
     protected int ageIDinArray = 0;
     private int money;
-    protected float exp ;
+    protected float exp;
     protected Warriors[] warriors = new Warriors[0];
     protected Castle castle = new Castle(this);
     //public Player myEnemy = Console.Bot;
@@ -21,70 +22,78 @@ public class Player {
     protected int turretAge = 0;
     protected String name = "Player";
 
-    Player(String LeftOrRight){
+
+    Player(String LeftOrRight) {
         exp = 10000;//change
         money = 5000;// change
         currentAge = new Age(Console.arrayOfAges[0]);
-        if(LeftOrRight.equals("Left")){
+        if (LeftOrRight.equals("Left")) {
             castlePosition[0] = -90;
             castlePosition[1] = 480;
-        }else if(LeftOrRight.equals("Right")){
-            castlePosition[0] = 1080-90;
+        } else if (LeftOrRight.equals("Right")) {
+            castlePosition[0] = 1080 - 90;
             castlePosition[1] = 480;
-        }
-        else   {
+        } else {
             System.out.println("wrong position input, try capital letters");
             System.exit(0);
         }
 
     }
+
     // WARRIORS
-    public void changeArray(){ // jnjuma warrior[0]
+    public void changeArray() { // jnjuma warrior[0]
         int newLength = this.warriors.length - 1;
         Warriors[] newArray = new Warriors[newLength];
         for (int i = 1; i < this.warriors.length - 1; i++)
-            newArray[i-1] = this.warriors[i]; //OBOE resolved
+            newArray[i - 1] = this.warriors[i]; //OBOE resolved
         this.warriors = newArray;
     }
-    public void changeArray(int index){ // jnjuma mi hat warrior[i]
+
+    public void changeArray(int index) { // jnjuma mi hat warrior[i]
         int a = 0;
         int newLength = this.warriors.length - 1;
         Warriors[] newArray = new Warriors[newLength];
-        for (int i = 0; i < this.warriors.length; i++){
-            if (i == index){
+        for (int i = 0; i < this.warriors.length; i++) {
+            if (i == index) {
                 a += 1;
-            }else{
-                newArray[i-a] = this.warriors[i];
+            } else {
+                newArray[i - a] = this.warriors[i];
             }
-            newArray[i] = this.warriors[i-1];
+            newArray[i] = this.warriors[i - 1];
         }
         this.warriors = newArray;
     }
+
     public void changeArray(Warriors newWarrior) { // avelacnuma mi hat warrior
         int newLength = this.warriors.length + 1;
         Warriors[] copyArray = new Warriors[newLength];
         Warriors[] newArray = new Warriors[newLength];
         for (int i = 0; i < this.warriors.length; i++) {
             newArray[i] = this.warriors[i];
-            copyArray[i]= new Warriors(this.warriors[i]);
+            copyArray[i] = new Warriors(this.warriors[i]);
         }
         newArray[newLength - 1] = newWarrior;
         copyArray[newLength - 1] = new Warriors(newWarrior);
         this.warriors = newArray;
     }
-    public Warriors[] getMyWarriorArray(){
+
+    public Warriors[] getMyWarriorArray() {
         return warriors;
     }
-    public Warriors getMyWarrior(int id){
+
+    public Warriors getMyWarrior(int id) {
         return warriors[id];
     }
-    public int getMyWarriorLength(){
+
+    public int getMyWarriorLength() {
         return warriors.length;
     }
-    public Warriors getEnemyWarrior(int id){
+
+    public Warriors getEnemyWarrior(int id) {
         return Console.Bot.getMyWarrior(id);
     }
-    public Warriors getClosestEnemyWarrior(){
+
+    public Warriors getClosestEnemyWarrior() {
         if (Console.Bot.warriors.length != 0)
             return Console.Bot.getMyWarrior(Console.Bot.getMyWarriorLength() - 1);
         else
@@ -92,26 +101,28 @@ public class Player {
     }
 
     // Age,Castle,Type
-    public Age getAge(){
-        if (this.currentAge != null){
+    public Age getAge() {
+        if (this.currentAge != null) {
             return this.currentAge;
             //return new Age(this.currentAge);
         }
         return Console.Age1;
     }
+
     public int getCastleHealthNow() {
         return castle.getCastleHealth();
     }
+
     private void setCastleHealthNow(int castleHealthNow) {
-        if(!castle.changeCastleHealth(this)){
+        if (!castle.changeCastleHealth(this)) {
             System.out.println("the age wasn't able to change");
         }
     }
 
     // BARD METHODS
-    public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
-        if(warriors.length > 0) {
-            Warriors wPlayer = warriors[warriors.length - 1];
+    public void ToBeOrNotToBe() { // Bot-i hamar reverse gerel
+        if (warriors.length > 0) {
+            Warriors wPlayer = warriors[0];
             System.out.println("player: first warrior is at " + wPlayer.getPositionX());
             if (Console.Bot.warriors.length > 0) {
                 Warriors wEnemy = getClosestEnemyWarrior();
@@ -134,7 +145,7 @@ public class Player {
                     }
                 }
             } else {
-                if (Console.Bot.getCastlePosition()[0] - wPlayer.getPositionX() < - 251) { //1320 3 hate 1110 //-130 , -90
+                if (Console.Bot.getCastlePosition()[0] - wPlayer.getPositionX() < -251) { //1320 3 hate 1110 //-130 , -90
 //                    System.out.println("player: Enemy Castle Health is " + Console.Bot.castle.getCastleHealth());
 //                    System.out.println("player: my damage is " + wPlayer.getAttack());
                     System.out.println("Bot Castle pos is " + Console.Bot.getCastlePosition()[0]);
@@ -155,37 +166,37 @@ public class Player {
                     while (i < warriors.length - 1) {
                         int frontWarriorX = warriors[i].getPositionX();
                         int backWarriorX = warriors[i + 1].getPositionX();
-                        if (frontWarriorX - backWarriorX > 25) {
+                        if (frontWarriorX - backWarriorX > 45) {
                             warriors[i + 1].setPosition(warriors[i + 1].getPositionX() + 25);
                             System.out.println("player: back warrior moved");
                         }
                         i++;
                     }
                 }
-
             }
         }
     }
-    public void tryUsingPower(){
-        int leastPossibleExpToBeInThisAge = this.currentAge.getAgeNumber() * 24;
-        float expConsumedToUsePower = 24*0.4f;
 
-        if(this.exp >= leastPossibleExpToBeInThisAge + expConsumedToUsePower){
+    public void tryUsingPower() {
+        int leastPossibleExpToBeInThisAge = this.currentAge.getAgeNumber() * 24;
+        float expConsumedToUsePower = 24 * 0.4f;
+
+        if (this.exp >= leastPossibleExpToBeInThisAge + expConsumedToUsePower) {
             this.exp -= expConsumedToUsePower;
             EnemyWarriors = Console.Bot.getMyWarriorArray();
-            int damageDone = new Warriors(this.currentAge,Console.Type2,0).getMaxhealth();
-            for (int i= 0; i < Console.Bot.getMyWarriorLength() - 1; i++){
-                if (EnemyWarriors[i].getCurrentHealth()-damageDone > 0)
+            int damageDone = new Warriors(this.currentAge, Console.Type2, 0).getMaxhealth();
+            for (int i = 0; i < Console.Bot.getMyWarriorLength() - 1; i++) {
+                if (EnemyWarriors[i].getCurrentHealth() - damageDone > 0)
                     EnemyWarriors[i].setCurrentHealth(damageDone);
                 else
-                    this.money += (int)(EnemyWarriors[i].getCost() * 1.2);
+                    this.money += (int) (EnemyWarriors[i].getCost() * 1.2);
                 Console.Bot.changeArray(i);
             }
-        }
-        else
-            System.out.println("not enough exp" + "\n" + (leastPossibleExpToBeInThisAge + expConsumedToUsePower) + " exp needed" );
+        } else
+            System.out.println("not enough exp" + "\n" + (leastPossibleExpToBeInThisAge + expConsumedToUsePower) + " exp needed");
     }
-    public void tryUpgradingAge(){
+
+    public void tryUpgradingAge() {
         int n = this.currentAge.getAgeNumber() + 1;
         if (n >= 5) {
             System.out.println("last age reached");
@@ -194,22 +205,25 @@ public class Player {
         } else
             System.out.println("not enough exp");
     }
-    public void tryCreatingTurret(){
-        int cost = Console.arrayOfTurrets[currentAge.getAgeNumber()-1].getCost();;
-        if(this.money >= cost){
+
+    public void tryCreatingTurret() {
+        int cost = Console.arrayOfTurrets[currentAge.getAgeNumber() - 1].getCost();
+        ;
+        if (this.money >= cost) {
             turretAge = currentAge.getAgeNumber();
         }
     }
-    public void tryCreatingUnit(Type type){
-        if (this.warriors.length <= 7){
-            Warriors warrior = new Warriors(currentAge,type,150);
-            if(money >= warrior.getCost()){
+
+    public void tryCreatingUnit(Type type) {
+        if (this.warriors.length <= 7) {
+            Warriors warrior = new Warriors(currentAge, type, 150);
+            if (money >= warrior.getCost()) {
                 this.money -= warrior.getCost();
                 this.addWarriors(warrior);
-            }else{
+            } else {
                 System.out.println("not enough money, you need " + warrior.getCost());
             }
-        }else{
+        } else {
             System.out.println("you have reached maximum capacity of 7 warriors");
         }
     }
@@ -218,34 +232,39 @@ public class Player {
     // PRIMITIVE GETTERS (may not be used)
     public void setDamageFirstWarriorHealth(int damageToWarrior) {
         warriors[0].setCurrentHealth(damageToWarrior);
-        if(warriors[0].getCurrentHealth() < 1) {
+        if (warriors[0].getCurrentHealth() < 1) {
             this.changeArray();
         }
     }
-    protected Age getNextAge(){
-        if(this.currentAge.getAgeNumber() < 3){
+
+    protected Age getNextAge() {
+        if (this.currentAge.getAgeNumber() < 3) {
             Console.arrayCount++;
             return Console.arrayOfAges[Console.arrayCount];
-        }
-        else {
+        } else {
             return null;
         }
     }
-    protected void setNextAge(){
-        if(getNextAge() != null){
+
+    protected void setNextAge() {
+        if (getNextAge() != null) {
             currentAge = getNextAge();
         }
     }
+
     protected Turret getNextTurret() {
         return Console.arrayOfTurrets[Console.arrayCount];
     }
+
     public int[] getCastlePosition() {
         return castlePosition;
     }
+
     public void addWarriors(Warriors newWarrior) {
         this.changeArray(newWarrior);
     }
-    public float getExp(){
+
+    public float getExp() {
         return this.exp;
     }
 }

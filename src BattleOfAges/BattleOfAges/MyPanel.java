@@ -56,7 +56,7 @@ public class MyPanel extends JPanel implements ActionListener{
         }
 
         Console.player.ToBeOrNotToBe();
-        Console.Bot.ToBeOrNotToBe();
+//        Console.Bot.ToBeOrNotToBe();
 
     }
 

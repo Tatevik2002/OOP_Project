@@ -2,7 +2,7 @@ package BattleOfAges;
 import BattleOfAges.Type.*;
 
 public class Age {
-    private int healthBonus;
+    private final int healthBonus;
     private int attackBonus;
     private int powerBonus;
     private int expCost;
