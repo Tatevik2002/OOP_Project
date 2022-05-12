@@ -34,12 +34,56 @@ public class MyPanel extends JPanel implements ActionListener{
     public void paint(Graphics g) {
         g2D = (Graphics2D) g;
         g2D.drawImage(backgroundImage, 0, 0, null);
-        g2D.drawImage(castle,-90,450, null);
-        g2D.drawImage(botCastle,1320,450, null);
+        if (Console.player.getAge().getAgeNumber()==1){
+            castle = new ImageIcon("castle1O.png").getImage();
+            g2D.drawImage(castle,-90,450, null);
+        }
+        else  if (Console.player.getAge().getAgeNumber()==2){
+            castle = new ImageIcon("castle2.png").getImage();
+            g2D.drawImage(castle,-90,380, null);
+
+        }
+        else  if (Console.player.getAge().getAgeNumber()==3){
+            castle = new ImageIcon("castle3.png").getImage();
+            g2D.drawImage(castle,-90,500, null);
+
+        }
+        else  if (Console.player.getAge().getAgeNumber()==4){
+            castle = new ImageIcon("castle4O.png").getImage();
+            g2D.drawImage(castle,-100,500, null);
+
+        }
+        if (Console.Bot.getAge().getAgeNumber()==1){ //check
+            botCastle = new ImageIcon("castle1.png").getImage();
+            g2D.drawImage(botCastle,1320,450, null);
+
+        }
+        else if (Console.Bot.getAge().getAgeNumber()==2){
+            botCastle = new ImageIcon("castle2.png").getImage();
+            g2D.drawImage(botCastle,1320,380, null);
+
+        }
+        else if (Console.Bot.getAge().getAgeNumber()==3){
+            botCastle = new ImageIcon("castle3.png").getImage();
+            g2D.drawImage(botCastle,1320,500, null);
+
+        }
+        if (Console.Bot.getAge().getAgeNumber()==4){
+            botCastle = new ImageIcon("castle4.png").getImage();
+            g2D.drawImage(botCastle,-130,400, null);
+
+        }
         if(Console.player.warriors.length != 0){
             for (Warriors element:Console.player.warriors){
                 String name;
                 name ="a"+(element.getAge().getAgeNumber())+"t"+element.getThisType().getNumber()+"O.PNG";
+                if (element.getAge().getAgeNumber() == 3 && element.getThisType().getNumber() == 3){ //to make  the type
+                    // 3 warrior to be on the same line since the sizes are different
+                    Image image1 = new ImageIcon(name).getImage();
+                    g2D.drawImage(image1, element.getPositionX(), y+50, null);
+                    continue;
+
+                }
 
                 Image image1 = new ImageIcon(name).getImage();
                 g2D.drawImage(image1, element.getPositionX(), y, null);
@@ -49,6 +93,13 @@ public class MyPanel extends JPanel implements ActionListener{
             for (Warriors element:Console.Bot.warriors){
                 String name;
                 name ="a"+(element.getAge().getAgeNumber())+"t"+element.getThisType().getNumber()+".PNG";
+                if (element.getAge().getAgeNumber() == 3 && element.getThisType().getNumber() == 3){ //to make  the type
+                    // 3 warrior to be on the same line
+                    Image image1 = new ImageIcon(name).getImage();
+                    g2D.drawImage(image1, element.getPositionX(), y+20, null);
+                    continue;
+
+                }
                 Image image1 = new ImageIcon(name).getImage();
                 g2D.drawImage(image1, element.getPositionX(), y, null);
 
@@ -63,34 +114,6 @@ public class MyPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         this.backgroundImage = new ImageIcon(Console.player.getAge().getImage()).getImage();
-        if(Console.player.getAge().getAgeNumber()==1){
-            this.castle = new ImageIcon("castle1.png").getImage();
-        }
-        else if(Console.player.getAge().getAgeNumber()==2){
-            System.out.println("k");
-            this.castle = new ImageIcon("castle2.png").getImage();
-        }
-        else if(Console.player.getAge().getAgeNumber()==3){
-            this.castle = new ImageIcon("castle3.png").getImage();
-        }
-        else if(Console.player.getAge().getAgeNumber()==4){
-            this.castle = new ImageIcon("castle4.png").getImage();
-        }
-
-
-        if(Console.Bot.getAge().getAgeNumber()==1){
-            this.castle = new ImageIcon("castle1.png").getImage();
-        }
-        else if(Console.Bot.getAge().getAgeNumber()==2){
-            this.castle = new ImageIcon("castle2.png").getImage();
-        }
-        else if(Console.Bot.getAge().getAgeNumber()==3){
-            this.castle = new ImageIcon("castle3.png").getImage();
-        }
-
-        else if(Console.Bot.getAge().getAgeNumber()==4){
-            this.castle = new ImageIcon("castle4.png").getImage();
-        }
         repaint();
 
 

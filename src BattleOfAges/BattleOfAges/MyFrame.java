@@ -20,12 +20,14 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton type2;
     JButton type3;
     Timer timer;
+    JProgressBar money;
     JProgressBar playerHealth;
     JProgressBar botHealth;
     JProgressBar playerExperience;
     JProgressBar botExperience;
     Integer  castleHealthInt;
     Integer  castleHealthIntBot;
+    Integer moneyInt;
     Float  playerExperienceFloat;
     Float  botExperienceFloat ;
 
@@ -35,36 +37,46 @@ public class MyFrame extends JFrame implements ActionListener {
         panel2 = new MyPanel();
 
         panel1.setMaximumSize(new Dimension(1920,80));
-        panel2.setPreferredSize(new Dimension(1920,980));
+        panel2.setPreferredSize(new Dimension(1920,1000));
         panel1.setLayout(new FlowLayout());
+        money = new JProgressBar(SwingConstants.HORIZONTAL,0, 5000);
+        money.setStringPainted(true);
+        money.setBackground(Color.green);
+        moneyInt = Console.player.getMoney();
+        this.money.setString("Money: "+  moneyInt.toString());
+        panel1.add(money);
+
+
         playerHealth = new JProgressBar(SwingConstants.HORIZONTAL,0, 400);
         botHealth = new JProgressBar(SwingConstants.HORIZONTAL,0,400);
         playerHealth.setStringPainted(true);
         botHealth.setStringPainted(true);
-        playerHealth.setBackground(Color.green);
+        playerHealth.setBackground(Color.YELLOW);
         botHealth.setBackground(Color.RED);
         castleHealthInt = Console.player.castle.getCastleHealth();
-        this.playerHealth.setString(castleHealthInt.toString());
+        this.playerHealth.setString("Player's health: "+castleHealthInt.toString());
         castleHealthIntBot = Console.Bot.castle.getCastleHealth();
-        this.botHealth.setString(castleHealthIntBot.toString());
+        this.botHealth.setString("Bot's health: "+castleHealthIntBot.toString());
         playerExperienceFloat = Console.player.getExp();
         botExperienceFloat = Console.player.getExp();
 
-        playerExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 1000);
-        botExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 1000);
+        playerExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 400);
+        botExperience = new JProgressBar(SwingConstants.HORIZONTAL, 0, 400);
 
         playerExperience.setStringPainted(true);
         botExperience.setStringPainted(true);
-        this.playerExperience.setString( playerExperienceFloat.toString()+"XP");
-        this.playerExperience.setString( botExperienceFloat.toString()+"XP");
+        this.playerExperience.setString( "Player's XP: "+playerExperienceFloat.toString()+"XP");
+        this.playerExperience.setString( "Bot's XP:  "+botExperienceFloat.toString()+"XP");
 
         playerExperience.setBackground(Color.ORANGE);
         botExperience.setBackground(Color.pink);
 
         upgrade = new JButton("Upgrade");
         upgrade.setBorderPainted(false);
+        upgrade.setBackground(Color.BLUE);
         usePower = new JButton("Use power");
         usePower.setBorderPainted(false);
+        usePower.setBackground(Color.BLUE);
         panel1.add(playerHealth);
         panel1.add(playerExperience);
         panel1.add(usePower);
@@ -127,11 +139,12 @@ public class MyFrame extends JFrame implements ActionListener {
         castleHealthIntBot = Console.player.castle.getCastleHealth();
         playerExperienceFloat = Console.player.getExp();
         botExperienceFloat = Console.player.getExp();
-
-        this.playerHealth.setString(castleHealthInt.toString());
-        this.botHealth.setString(castleHealthIntBot.toString());
-        this.playerExperience.setString( playerExperienceFloat.toString()+"XP");
-        this.botExperience.setString( botExperienceFloat.toString()+"XP");
+        moneyInt = Console.player.getMoney();
+        this.money.setString("Money: "+ moneyInt.toString());
+        this.playerHealth.setString("player's health: "+ castleHealthInt.toString());
+        this.botHealth.setString("Bot's health" + castleHealthIntBot.toString());
+        this.playerExperience.setString( "Player's XP: "+playerExperienceFloat.toString());
+        this.botExperience.setString("Bot's XP: "+ botExperienceFloat.toString());
 
 
         if(e.getSource()==this.usePower) {
@@ -147,16 +160,19 @@ public class MyFrame extends JFrame implements ActionListener {
                 this.type1.setIcon(new ImageIcon("ba2t1O.PNG"));
                 this.type2.setIcon(new ImageIcon("ba2t2O.PNG"));
                 this.type3.setIcon(new ImageIcon("ba2t3O.PNG"));
+                //this.panel2.castle = new ImageIcon("castle2.png").getImage();
             }
             else if(Console.player.getAge()==Console.Age3){
                 this.type1.setIcon(new ImageIcon("ba3t1O.PNG"));
                 this.type2.setIcon(new ImageIcon("ba3t2O.PNG"));
                 this.type3.setIcon(new ImageIcon("ba3t3O.PNG"));
+                //this.panel2.castle = new ImageIcon("castle3.png").getImage();
             }
             else if(Console.player.getAge()==Console.Age4){
                 this.type1.setIcon(new ImageIcon("ba4t1O.PNG"));
                 this.type2.setIcon(new ImageIcon("ba4t2O.PNG"));
                 this.type3.setIcon(new ImageIcon("ba4t3O.PNG"));
+               // this.panel2.castle = new ImageIcon("castle4.png").getImage();
             }
 
 

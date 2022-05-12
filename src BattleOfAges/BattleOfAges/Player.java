@@ -24,7 +24,7 @@ public class Player {
 
 
     Player(String LeftOrRight) {
-        exp = 10000;//change
+        exp = 0;
         money = 5000;// change
         currentAge = new Age(Console.arrayOfAges[0]);
         if (LeftOrRight.equals("Left")) {
@@ -266,5 +266,8 @@ public class Player {
 
     public float getExp() {
         return this.exp;
+    }
+    public int getMoney(){
+        return this.money;
     }
 }
