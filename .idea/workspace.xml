@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28f032fe-65da-4972-bdc2-08ec22f3e3c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/MyFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/MyFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/MyPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Bot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Player.java" afterDir="false" />
@@ -70,7 +68,8 @@
       <workItem from="1652017672441" duration="1739000" />
       <workItem from="1652204487485" duration="11495000" />
       <workItem from="1652265429939" duration="2919000" />
-      <workItem from="1652356469894" duration="5988000" />
+      <workItem from="1652356469894" duration="6487000" />
+      <workItem from="1652377497880" duration="3767000" />
     </task>
     <servers />
   </component>

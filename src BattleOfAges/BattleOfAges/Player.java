@@ -208,7 +208,6 @@ public class Player {
 
     public void tryCreatingTurret() {
         int cost = Console.arrayOfTurrets[currentAge.getAgeNumber() - 1].getCost();
-        ;
         if (this.money >= cost) {
             turretAge = currentAge.getAgeNumber();
         }

@@ -14,6 +14,8 @@ public class MyPanel extends JPanel implements ActionListener{
     Image botCastle;
     Image backgroundImage;
     Timer timer;
+    Image turretPlayer;
+    Image turretBot;
     int xVelocity = 100;
     int x =0;
     int y = 540;
@@ -50,7 +52,7 @@ public class MyPanel extends JPanel implements ActionListener{
         }
         else  if (Console.player.getAge().getAgeNumber()==4){
             castle = new ImageIcon("castle4O.png").getImage();
-            g2D.drawImage(castle,-100,500, null);
+            g2D.drawImage(castle,-100,400, null);
 
         }
         if (Console.Bot.getAge().getAgeNumber()==1){ //check
@@ -70,7 +72,7 @@ public class MyPanel extends JPanel implements ActionListener{
         }
         if (Console.Bot.getAge().getAgeNumber()==4){
             botCastle = new ImageIcon("castle4.png").getImage();
-            g2D.drawImage(botCastle,-130,400, null);
+            g2D.drawImage(botCastle,1190,400, null);
 
         }
         if(Console.player.warriors.length != 0){
@@ -105,7 +107,38 @@ public class MyPanel extends JPanel implements ActionListener{
 
             }//for bot
         }
-
+        if (Console.player.turretAge ==1){
+            turretPlayer = new ImageIcon("turret1O.png").getImage();
+            g2D.drawImage(turretPlayer,0,450, null);
+        }
+         else if (Console.player.turretAge ==2){
+            turretPlayer = new ImageIcon("turret2O.png").getImage();
+            g2D.drawImage(turretPlayer,0,450, null);
+        }
+        if (Console.player.turretAge ==3){
+            turretPlayer = new ImageIcon("turret3O.png").getImage();
+            g2D.drawImage(turretPlayer,0,500, null);
+        }
+        if (Console.player.turretAge ==4){
+            turretPlayer = new ImageIcon("turret4O.png").getImage();
+            g2D.drawImage(turretPlayer,0,500, null);
+        }
+        if (Console.Bot.turretAge ==1){
+            turretBot = new ImageIcon("turret1.png").getImage();
+            g2D.drawImage(turretBot,1400,450, null);
+        }
+        else if (Console.Bot.turretAge ==2){
+            turretBot = new ImageIcon("turret2.png").getImage();
+            g2D.drawImage(turretBot,1400,450, null);
+        }
+        if (Console.Bot.turretAge ==3){
+            turretBot = new ImageIcon("turret3.png").getImage();
+            g2D.drawImage(turretBot,1400,500, null);
+        }
+        if (Console.Bot.turretAge ==4){
+            turretBot = new ImageIcon("turret4O.png").getImage();
+            g2D.drawImage(turretBot,1400,500, null);
+        }
         Console.player.ToBeOrNotToBe();
 //        Console.Bot.ToBeOrNotToBe();
 

@@ -19,12 +19,14 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton type1;
     JButton type2;
     JButton type3;
+    JButton turret;
     Timer timer;
     JProgressBar money;
     JProgressBar playerHealth;
     JProgressBar botHealth;
     JProgressBar playerExperience;
     JProgressBar botExperience;
+
     Integer  castleHealthInt;
     Integer  castleHealthIntBot;
     Integer moneyInt;
@@ -77,10 +79,23 @@ public class MyFrame extends JFrame implements ActionListener {
         usePower = new JButton("Use power");
         usePower.setBorderPainted(false);
         usePower.setBackground(Color.BLUE);
+        turret = new JButton();
+        turret.setBorderPainted(false);
+        if (Console.player.getAge().getAgeNumber() == 1)
+            turret.setText("Turret: "+ Console.TypeOneTurret.getCost());
+        else if (Console.player.getAge().getAgeNumber() == 2)
+            turret.setText("Turret: "+ Console.TypeTwoTurret.getCost());
+        else if (Console.player.getAge().getAgeNumber() == 3)
+            turret.setText("Turret: "+ Console.TypeThreeTurret.getCost());
+        else if (Console.player.getAge().getAgeNumber() == 4)
+            turret.setText("Turret: "+ Console.TypeFourTurret.getCost());
+        turret.setBackground(Color.BLUE);
         panel1.add(playerHealth);
         panel1.add(playerExperience);
         panel1.add(usePower);
         panel1.add(upgrade);
+        panel1.add(turret);
+
         type1 = new JButton();
         type2 = new JButton();
         type3 = new JButton();
@@ -110,6 +125,7 @@ public class MyFrame extends JFrame implements ActionListener {
         type3.addActionListener(this);
         upgrade.addActionListener(this);
         usePower.addActionListener(this);
+        turret.addActionListener(this);
         timer = new Timer(1000, this);
         timer.start();
 
@@ -145,6 +161,15 @@ public class MyFrame extends JFrame implements ActionListener {
         this.botHealth.setString("Bot's health" + castleHealthIntBot.toString());
         this.playerExperience.setString( "Player's XP: "+playerExperienceFloat.toString());
         this.botExperience.setString("Bot's XP: "+ botExperienceFloat.toString());
+
+        if (Console.player.getAge().getAgeNumber() == 1)
+            turret.setText("Turret: "+ Console.TypeOneTurret.getCost());
+        else if (Console.player.getAge().getAgeNumber() == 2)
+            turret.setText("Turret: "+ Console.TypeTwoTurret.getCost());
+        else if (Console.player.getAge().getAgeNumber() == 3)
+            turret.setText("Turret: "+ Console.TypeThreeTurret.getCost());
+        else if (Console.player.getAge().getAgeNumber() == 4)
+            turret.setText("Turret: "+ Console.TypeFourTurret.getCost());
 
 
         if(e.getSource()==this.usePower) {
@@ -189,6 +214,9 @@ public class MyFrame extends JFrame implements ActionListener {
         }
         else if(e.getSource()==this.type3) {
             Console.player.tryCreatingUnit(Console.Type3);
+        }
+        else if (e.getSource()==this.turret){
+            Console.player.tryCreatingTurret();
         }
         repaint();
     }

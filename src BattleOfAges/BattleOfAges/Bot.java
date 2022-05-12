@@ -16,6 +16,7 @@ public class Bot extends Player{
 
     Bot(String LeftOrRight){
         super("Right");
+
     }
 
     // WARRIORS
