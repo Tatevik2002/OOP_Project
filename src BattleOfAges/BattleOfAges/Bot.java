@@ -11,12 +11,15 @@ import java.awt.event.ActionListener;
 import java.beans.beancontext.BeanContextChild;
 
 public class Bot extends Player{
-    protected Player myEnemy = Console.player;
+    protected Player myEnemy = null;
     protected String name = "Bot";
 
     Bot(String LeftOrRight){
         super("Right");
+    }
 
+    public void setMyEnemy(Player myEnemy) {
+        this.myEnemy = myEnemy;
     }
 
     // WARRIORS
@@ -34,7 +37,7 @@ public class Bot extends Player{
     }
     public Warriors getClosestEnemyWarrior(){
         if (myEnemy.warriors.length != 0)
-            return myEnemy.getMyWarrior(Console.Bot.getMyWarriorLength() - 1);
+            return myEnemy.getMyWarrior(Console.player.getMyWarriorLength() - 1);
         else
             return null; // will be handeled where it is used.
     }
@@ -59,7 +62,7 @@ public class Bot extends Player{
     public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
         if(warriors.length > 0) {
             Warriors wPlayer = warriors[warriors.length-1];
-            if(Console.Bot.getMyWarriorLength() > 0){
+            if(Console.bot.getMyWarriorLength() > 0){
                 Warriors wEnemy = getClosestEnemyWarrior();
                 if(wPlayer.getPositionX() - wEnemy.getPositionX() > 100){
                     wPlayer.setPosition(wPlayer.getPositionX() - 100);

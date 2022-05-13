@@ -4,6 +4,13 @@ import BattleOfAges.TurretTypes.Turret;
 import BattleOfAges.Type.Type;
 
 public class Console {
+    public static Bot getBot() {
+        return bot;
+    }
+    public static Player getPlayer() {
+        return player;
+    }
+
     void attack() {
     }
 
@@ -49,6 +56,9 @@ public class Console {
 //    static Warriors[] BotWarriors = new Warriors[0];
     static int position1 = 0;
     static int position2 = 0;
-    static Bot Bot = new Bot("Right");
     static Player player = new Player("Left");
+    static Bot bot = new Bot("Right");
+
+//    Console.player.setMyEnemy(bot);
+//    Console.bot.setMyEnemy(player);
 }

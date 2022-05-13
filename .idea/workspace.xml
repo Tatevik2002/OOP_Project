@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="28f032fe-65da-4972-bdc2-08ec22f3e3c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Console.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Console.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/Bot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_Project/BattleOfAges/MyPanel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/MyPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src BattleOfAges/BattleOfAges/Player.java" afterDir="false" />
     </list>

@@ -16,11 +16,12 @@ public class Player {
     protected float exp;
     protected Warriors[] warriors = new Warriors[0];
     protected Castle castle = new Castle(this);
-    //public Player myEnemy = Console.Bot;
+    public Player myEnemy;
     protected int[] castlePosition = new int[2];
     protected Warriors[] EnemyWarriors;
     protected int turretAge = 0;
     protected String name = "Player";
+
 
 
     Player(String LeftOrRight) {
@@ -37,6 +38,10 @@ public class Player {
             System.out.println("wrong position input, try capital letters");
             System.exit(0);
         }
+    }
+
+    public void setMyEnemy(Player myEnemy) {
+        this.myEnemy = myEnemy;
     }
 
     // WARRIORS
@@ -89,12 +94,12 @@ public class Player {
     }
 
     public Warriors getEnemyWarrior(int id) {
-        return Console.Bot.getMyWarrior(id);
+        return Console.bot.getMyWarrior(id);
     }
 
     public Warriors getClosestEnemyWarrior() {
-        if (Console.Bot.warriors.length != 0)
-            return Console.Bot.getMyWarrior(Console.Bot.getMyWarriorLength() - 1);
+        if (Console.bot.warriors.length != 0)
+            return Console.bot.getMyWarrior(Console.bot.getMyWarriorLength() - 1);
         else
             return null; // will be handeled where it is used.
     }
@@ -123,7 +128,7 @@ public class Player {
         if (warriors.length > 0) {
             Warriors wPlayer = warriors[0];
             System.out.println("player: first warrior is at " + wPlayer.getPositionX());
-            if (Console.Bot.warriors.length > 0) {
+            if (Console.bot.warriors.length > 0) {
                 Warriors wEnemy = getClosestEnemyWarrior();
                 System.out.println("player: enemy warrior detected. ");
                 System.out.print("Closest Enemy Position is: " + wEnemy.getPositionX());
@@ -139,17 +144,17 @@ public class Player {
                     if (wEnemy.getCurrentHealth() <= 0) {
                         this.exp += wEnemy.getThisType().getExp();
                         this.money += (int) (wEnemy.getCost() * 1.2);
-                        Console.Bot.changeArray();
+                        Console.bot.changeArray();
                         System.out.println("enemy: front unit died");
                     }
                 }
             } else {
-                if (Console.Bot.getCastlePosition()[0] - wPlayer.getPositionX() < -251) { //1320 3 hate 1110 //-130 , -90
-//                    System.out.println("player: Enemy Castle Health is " + Console.Bot.castle.getCastleHealth());
+                if (Console.bot.getCastlePosition()[0] - wPlayer.getPositionX() < -251) { //1320 3 hate 1110 //-130 , -90
+//                    System.out.println("player: Enemy Castle Health is " + Console.bot.castle.getCastleHealth());
 //                    System.out.println("player: my damage is " + wPlayer.getAttack());
-                    System.out.println("Bot Castle pos is " + Console.Bot.getCastlePosition()[0]);
+                    System.out.println("Bot Castle pos is " + Console.bot.getCastlePosition()[0]);
                     System.out.println("Player Position " + wPlayer.getPositionX());
-                    if (Console.Bot.castle.damageToCastle(wPlayer.getAttack()) == "Dead") {
+                    if (Console.bot.castle.damageToCastle(wPlayer.getAttack()) == "Dead") {
                         System.out.println("the " + this.name + " has won the game.");
 //                        System.out.println("thank you for playing the game");
                         System.out.println("credits: Olga, Tatev, Gabriel");
@@ -182,14 +187,14 @@ public class Player {
 
         if (this.exp >= leastPossibleExpToBeInThisAge + expConsumedToUsePower) {
             this.exp -= expConsumedToUsePower;
-            EnemyWarriors = Console.Bot.getMyWarriorArray();
+            EnemyWarriors = Console.bot.getMyWarriorArray();
             int damageDone = new Warriors(this.currentAge, Console.Type2, 0).getMaxhealth();
-            for (int i = 0; i < Console.Bot.getMyWarriorLength() - 1; i++) {
+            for (int i = 0; i < Console.bot.getMyWarriorLength() - 1; i++) {
                 if (EnemyWarriors[i].getCurrentHealth() - damageDone > 0)
                     EnemyWarriors[i].setCurrentHealth(damageDone);
                 else
                     this.money += (int) (EnemyWarriors[i].getCost() * 1.2);
-                Console.Bot.changeArray(i);
+                Console.bot.changeArray(i);
             }
         } else
             System.out.println("not enough exp" + "\n" + (leastPossibleExpToBeInThisAge + expConsumedToUsePower) + " exp needed");

@@ -57,7 +57,7 @@ public class MyFrame extends JFrame implements ActionListener {
         botHealth.setBackground(Color.RED);
         castleHealthInt = Console.player.castle.getCastleHealth();
         this.playerHealth.setString("Player's health: "+castleHealthInt.toString());
-        castleHealthIntBot = Console.Bot.castle.getCastleHealth();
+        castleHealthIntBot = Console.bot.castle.getCastleHealth();
         this.botHealth.setString("Bot's health: "+castleHealthIntBot.toString());
         playerExperienceFloat = Console.player.getExp();
         botExperienceFloat = Console.player.getExp();
