@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.beancontext.BeanContextChild;
+import java.sql.SQLOutput;
 
 public class Player {
     protected Age currentAge;
@@ -27,6 +28,7 @@ public class Player {
     Player(String LeftOrRight) {
         exp = 2000;
         money = 50000;// change
+        System.out.println(LeftOrRight);
         currentAge = new Age(Console.arrayOfAges[0]);
         if (LeftOrRight.equals("Left")) {
             castlePosition[0] = -90;
@@ -40,8 +42,19 @@ public class Player {
         }
     }
 
-    public void setMyEnemy(Player myEnemy) {
-        this.myEnemy = myEnemy;
+    public  void setMyEnemy(Object myEnemy) {
+        Bot botReference = new Bot("Right");
+        if (myEnemy ==  null){
+            System.out.println("The enemy is null");
+        }
+        else if (myEnemy.getClass()== botReference.getClass()){
+            this.myEnemy = (Bot)myEnemy;
+
+        }
+        else{
+            System.out.println("Another object");
+        }
+
     }
 
     // WARRIORS
@@ -129,23 +142,25 @@ public class Player {
             Warriors wPlayer = warriors[0];
             System.out.println("player: first warrior is at " + wPlayer.getPositionX());
             if (Console.bot.warriors.length > 0) {
-                Warriors wEnemy = getClosestEnemyWarrior();
-                System.out.println("player: enemy warrior detected. ");
-                System.out.print("Closest Enemy Position is: " + wEnemy.getPositionX());
-                // @HIT
-                if (wEnemy.getPositionX() - wPlayer.getPositionX() < 101) {
-                    System.out.println("ALL: hitting each other");
-                    wEnemy.setCurrentHealth(wPlayer.getAttack());
-                    wPlayer.setCurrentHealth(wEnemy.getAttack());
-                    if (wPlayer.getCurrentHealth() <= 0) {
-                        this.changeArray();
-                        System.out.println("player: front unit died");
-                    }
-                    if (wEnemy.getCurrentHealth() <= 0) {
-                        this.exp += wEnemy.getThisType().getExp();
-                        this.money += (int) (wEnemy.getCost() * 1.2);
-                        Console.bot.changeArray();
-                        System.out.println("enemy: front unit died");
+                if (!(getClosestEnemyWarrior() == null)) {
+                    Warriors wEnemy = getClosestEnemyWarrior();
+                    System.out.println("player: enemy warrior detected. ");
+                    System.out.print("Closest Enemy Position is: " + wEnemy.getPositionX());
+                    // @HIT
+                    if (wEnemy.getPositionX() - wPlayer.getPositionX() < 101) {
+                        System.out.println("ALL: hitting each other");
+                        wEnemy.setCurrentHealth(wPlayer.getAttack());
+                        wPlayer.setCurrentHealth(wEnemy.getAttack());
+                        if (wPlayer.getCurrentHealth() <= 0) {
+                            this.changeArray();
+                            System.out.println("player: front unit died");
+                        }
+                        if (wEnemy.getCurrentHealth() <= 0) {
+                            this.exp += wEnemy.getThisType().getExp();
+                            this.money += (int) (wEnemy.getCost() * 1.2);
+                            Console.bot.changeArray();
+                            System.out.println("enemy: front unit died");
+                        }
                     }
                 }
             } else {

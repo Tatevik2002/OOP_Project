@@ -68,7 +68,7 @@ public class MyFrame extends JFrame implements ActionListener {
         playerExperience.setStringPainted(true);
         botExperience.setStringPainted(true);
         this.playerExperience.setString( "Player's XP: "+playerExperienceFloat.toString()+"XP");
-        this.playerExperience.setString( "Bot's XP:  "+botExperienceFloat.toString()+"XP");
+        this.botExperience.setString( "Bot's XP:  "+botExperienceFloat.toString()+"XP");
 
         playerExperience.setBackground(Color.ORANGE);
         botExperience.setBackground(Color.pink);

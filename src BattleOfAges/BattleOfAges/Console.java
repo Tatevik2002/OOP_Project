@@ -59,6 +59,5 @@ public class Console {
     static Player player = new Player("Left");
     static Bot bot = new Bot("Right");
 
-//    Console.player.setMyEnemy(bot);
-//    Console.bot.setMyEnemy(player);
+
 }

@@ -15,11 +15,22 @@ public class Bot extends Player{
     protected String name = "Bot";
 
     Bot(String LeftOrRight){
-        super("Right");
+        super(LeftOrRight);
     }
 
-    public void setMyEnemy(Player myEnemy) {
-        this.myEnemy = myEnemy;
+    public  void setMyEnemy(Object myEnemy) {
+       Player playerReference = new Player("Left");
+        if (myEnemy ==  null){
+            System.out.println("The enemy is null");
+        }
+        else if (myEnemy.getClass()== playerReference.getClass()){
+            this.myEnemy = (Player)myEnemy;
+
+        }
+        else{
+            System.out.println("Another object");
+        }
+
     }
 
     // WARRIORS
@@ -62,19 +73,21 @@ public class Bot extends Player{
     public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
         if(warriors.length > 0) {
             Warriors wPlayer = warriors[warriors.length-1];
-            if(Console.bot.getMyWarriorLength() > 0){
+            if(Console.bot.getMyWarriorLength() > 0) {
+                if (!(getClosestEnemyWarrior() == null)) {
                 Warriors wEnemy = getClosestEnemyWarrior();
-                if(wPlayer.getPositionX() - wEnemy.getPositionX() > 100){
+                if (wPlayer.getPositionX() - wEnemy.getPositionX() > 100) {
                     wPlayer.setPosition(wPlayer.getPositionX() - 100);
                     System.out.println("first player warrior moved from " + wPlayer.getPositionX());
-                }else if(wPlayer.getPositionX() - myEnemy.getCastlePosition()[0] < 101){
-                    if(myEnemy.castle.damageToCastle(wPlayer.getAttack()) == "Dead"){
+                } else if (wPlayer.getPositionX() - myEnemy.getCastlePosition()[0] < 101) {
+                    if (myEnemy.castle.damageToCastle(wPlayer.getAttack()) == "Dead") {
                         System.out.println("the " + this.name + " has won the game.");
                         System.out.println("thank you for playing the game");
                         System.out.println("credits: Olga, Tatev, Gabriel");
                         System.exit(0);
                     }
                 }
+            }
             }
             else{
                 if(warriors.length > 1){ // for mooving all the warriors in the back
@@ -129,15 +142,15 @@ public class Bot extends Player{
         if (this.warriors.length <= 7){
             int a = (int)Math.round(Math.random()*10);
             if(a <5){
-                Warriors warrior = new Warriors(currentAge,Console.Type3,-90);
+                Warriors warrior = new Warriors(currentAge,Console.Type3,1320);
                 this.exp += (int)(warrior.getExp()*9/10);
                 this.addWarriors(warrior);
             }else if(a<4){
-                Warriors warrior = new Warriors(currentAge,Console.Type2,-90);
+                Warriors warrior = new Warriors(currentAge,Console.Type2,1320);
                 this.exp += (int)(warrior.getExp()*9/10);
                 this.addWarriors(warrior);
             }else if(a<3){
-                Warriors warrior = new Warriors(currentAge,Console.Type1,-90);
+                Warriors warrior = new Warriors(currentAge,Console.Type1,1320);
                 this.exp += (int)(warrior.getExp()*9/10);
                 this.addWarriors(warrior);
             }
