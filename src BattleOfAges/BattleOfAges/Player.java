@@ -164,13 +164,11 @@ public class Player {
                 }
             } else {
                 if (Console.bot.getCastlePosition()[0] - wPlayer.getPositionX() < -251) { //1320 3 hate 1110 //-130 , -90
-//                    System.out.println("player: Enemy Castle Health is " + Console.bot.castle.getCastleHealth());
-//                    System.out.println("player: my damage is " + wPlayer.getAttack());
+
                     System.out.println("Bot Castle pos is " + Console.bot.getCastlePosition()[0]);
                     System.out.println("Player Position " + wPlayer.getPositionX());
                     if (Console.bot.castle.damageToCastle(wPlayer.getAttack()) == "Dead") {
                         System.out.println("the " + this.name + " has won the game.");
-//                        System.out.println("thank you for playing the game");
                         System.out.println("credits: Olga, Tatev, Gabriel");
                         System.exit(0);
                     }

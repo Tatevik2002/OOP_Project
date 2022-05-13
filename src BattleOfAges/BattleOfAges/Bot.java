@@ -123,17 +123,14 @@ public class Bot extends Player{
     }
     public void tryUpgradingAge(){
         int n = this.currentAge.getAgeNumber() + 1;
-        if (n >= 4) {
-            System.out.println("last age reached");
-        } else if (exp >= 24 * n) {
+         if (n<=3 && exp >= 24 * n) {
             System.out.println(this.currentAge.getAgeNumber());
             currentAge = Console.arrayOfAges[this.currentAge.getAgeNumber() + 1];
             if( Math.random()*100 > 95  ){
                 this.tryUsingPower();
             }
 
-        } else
-            System.out.println("not enough exp");
+        }
     }
     public void tryCreatingTurret(){
         int cost = Console.arrayOfTurrets[currentAge.getAgeNumber()-1].getCost();;
