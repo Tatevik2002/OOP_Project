@@ -140,7 +140,8 @@ public class MyPanel extends JPanel implements ActionListener{
             g2D.drawImage(turretBot,1400,500, null);
         }
         Console.player.ToBeOrNotToBe();
-//        Console.Bot.ToBeOrNotToBe();
+        Console.Bot.ToBeOrNotToBe();
+        Console.Bot.tryCreatingUnit();
 
     }
 

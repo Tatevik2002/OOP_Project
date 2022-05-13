@@ -24,8 +24,8 @@ public class Player {
 
 
     Player(String LeftOrRight) {
-        exp = 0;
-        money = 5000;// change
+        exp = 2000;
+        money = 50000;// change
         currentAge = new Age(Console.arrayOfAges[0]);
         if (LeftOrRight.equals("Left")) {
             castlePosition[0] = -90;
@@ -37,7 +37,6 @@ public class Player {
             System.out.println("wrong position input, try capital letters");
             System.exit(0);
         }
-
     }
 
     // WARRIORS

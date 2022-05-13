@@ -57,7 +57,7 @@ public class Bot extends Player{
 
     // BARD METHODS
     public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
-        /* if(warriors.length > 0) {
+        if(warriors.length > 0) {
             Warriors wPlayer = warriors[warriors.length-1];
             if(Console.Bot.getMyWarriorLength() > 0){
                 Warriors wEnemy = getClosestEnemyWarrior();
@@ -70,23 +70,6 @@ public class Bot extends Player{
                         System.out.println("thank you for playing the game");
                         System.out.println("credits: Olga, Tatev, Gabriel");
                         System.exit(0);
-                    }
-                }
-                // @HIT
-                if (wEnemy.getPositionX() - wPlayer.getPositionX() < 100){
-                    System.out.println("hit ara ara");
-                    wEnemy.setCurrentHealth(wPlayer.getAttack());
-                    wPlayer.setCurrentHealth(wEnemy.getAttack());
-                    if (wPlayer.getCurrentHealth() <= 0){
-                        this.changeArray();
-                    }
-                    if(wEnemy.getCurrentHealth() <= 0){
-                        this.exp += wEnemy.getThisType().getExp();
-//                        this.money += (int)(wEnemy.getCost() * 1.2);
-                        myEnemy.changeArray();
-                    }
-                    if(wEnemy.getCurrentHealth() <= 0){
-                        myEnemy.changeArray();
                     }
                 }
             }
@@ -103,7 +86,7 @@ public class Bot extends Player{
                     }
                 }
             }
-        } */
+        }
     }
     public void tryUsingPower(){
         int leastPossibleExpToBeInThisAge = this.currentAge.getAgeNumber() * 24;
@@ -139,15 +122,22 @@ public class Bot extends Player{
 //            turretAge = currentAge.getAgeNumber();
 //        }
     }
-    public void tryCreatingUnit(Type type){
+    public void tryCreatingUnit(){
         if (this.warriors.length <= 7){
-            Warriors warrior = new Warriors(currentAge,type,-90);
-//            if(money >= warrior.getCost()){
-//                this.money -= warrior.getCost();
-//                this.addWarriors(warrior);
-//            }else{
-//                System.out.println("not enough money, you need " + warrior.getCost());
-//            }
+            int a = (int)Math.round(Math.random()*10);
+            if(a <5){
+                Warriors warrior = new Warriors(currentAge,Console.Type3,-90);
+                this.exp += (int)(warrior.getExp()*9/10);
+                this.addWarriors(warrior);
+            }else if(a<4){
+                Warriors warrior = new Warriors(currentAge,Console.Type2,-90);
+                this.exp += (int)(warrior.getExp()*9/10);
+                this.addWarriors(warrior);
+            }else if(a<3){
+                Warriors warrior = new Warriors(currentAge,Console.Type1,-90);
+                this.exp += (int)(warrior.getExp()*9/10);
+                this.addWarriors(warrior);
+            }
         }else{
             System.out.println("you have reached maximum capacity of 7 warriors");
         }
