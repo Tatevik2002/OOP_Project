@@ -9,7 +9,7 @@ public class Turret{
 
     public Turret(int bonus) {
         this.attack = 2 + bonus;
-        this.cost = 800 + (int)Math.pow(200,bonus);
+        this.cost = 800 + (int)Math.pow(2,bonus);
     }
 
     public int getAttack() {

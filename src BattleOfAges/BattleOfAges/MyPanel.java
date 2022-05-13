@@ -139,9 +139,12 @@ public class MyPanel extends JPanel implements ActionListener{
             turretBot = new ImageIcon("turret4O.png").getImage();
             g2D.drawImage(turretBot,1400,500, null);
         }
+        Console.bot.tryCreatingUnit();
+        Console.bot.tryUpgradingAge();
+        Console.bot.tryCreatingTurret();
         Console.player.ToBeOrNotToBe();
         Console.bot.ToBeOrNotToBe();
-        Console.bot.tryCreatingUnit();
+
 
     }
 

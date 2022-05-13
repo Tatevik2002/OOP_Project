@@ -70,7 +70,7 @@ public class Bot extends Player{
     }
 
     // BARD METHODS
-    public void ToBeOrNotToBe(){ // Bot-i hamar reverse gerel
+    public void ToBeOrNotToBe(){
         if(warriors.length > 0) {
             Warriors wPlayer = warriors[warriors.length-1];
             if(Console.bot.getMyWarriorLength() > 0) {
@@ -120,15 +120,18 @@ public class Bot extends Player{
                     myEnemy.changeArray(i);
             }
         }
-        else
-            System.out.println("not enough exp" + "\n" + (leastPossibleExpToBeInThisAge + expConsumedToUsePower) + " exp needed" );
     }
     public void tryUpgradingAge(){
         int n = this.currentAge.getAgeNumber() + 1;
-        if (n >= 5) {
+        if (n >= 4) {
             System.out.println("last age reached");
         } else if (exp >= 24 * n) {
+            System.out.println(this.currentAge.getAgeNumber());
             currentAge = Console.arrayOfAges[this.currentAge.getAgeNumber() + 1];
+            if( Math.random()*100 > 95  ){
+                this.tryUsingPower();
+            }
+
         } else
             System.out.println("not enough exp");
     }

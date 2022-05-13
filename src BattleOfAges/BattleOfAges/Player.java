@@ -27,8 +27,7 @@ public class Player {
 
     Player(String LeftOrRight) {
         exp = 2000;
-        money = 50000;// change
-        System.out.println(LeftOrRight);
+        money = 5000;
         currentAge = new Age(Console.arrayOfAges[0]);
         if (LeftOrRight.equals("Left")) {
             castlePosition[0] = -90;
@@ -217,12 +216,12 @@ public class Player {
 
     public void tryUpgradingAge() {
         int n = this.currentAge.getAgeNumber() + 1;
-        if (n >= 5) {
+        if (n >= 4) {
             System.out.println("last age reached");
         } else if (exp >= 24 * n) {
             currentAge = Console.arrayOfAges[this.currentAge.getAgeNumber()];
-        } else
-            System.out.println("not enough exp");
+        }
+
     }
 
     public void tryCreatingTurret() {
@@ -238,12 +237,9 @@ public class Player {
             if (money >= warrior.getCost()) {
                 this.money -= warrior.getCost();
                 this.addWarriors(warrior);
-            } else {
-                System.out.println("not enough money, you need " + warrior.getCost());
             }
-        } else {
-            System.out.println("you have reached maximum capacity of 7 warriors");
-        }
+
+        } 
     }
 
 
