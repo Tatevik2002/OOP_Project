@@ -26,7 +26,7 @@ public class Player {
 
 
     Player(String LeftOrRight) {
-        exp = 2000;
+        exp = 0;
         money = 5000;
         currentAge = new Age(Console.arrayOfAges[0]);
         if (LeftOrRight.equals("Left")) {
@@ -239,7 +239,7 @@ public class Player {
                 this.addWarriors(warrior);
             }
 
-        } 
+        }
     }
 
 

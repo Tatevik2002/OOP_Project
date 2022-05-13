@@ -98,7 +98,7 @@ public class MyPanel extends JPanel implements ActionListener{
                 if (element.getAge().getAgeNumber() == 3 && element.getThisType().getNumber() == 3){ //to make  the type
                     // 3 warrior to be on the same line
                     Image image1 = new ImageIcon(name).getImage();
-                    g2D.drawImage(image1, element.getPositionX(), y+20, null);
+                    g2D.drawImage(image1, element.getPositionX(), y+50, null);
                     continue;
 
                 }
